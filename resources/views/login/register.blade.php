@@ -31,7 +31,7 @@
                 Registrarse
                 </span>
                 <div id ="cajadatospersonales">
-                <form id="formdatospersonales">
+                
                     <!-- nombre completo -->
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                         Nombre: <input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo"  >
@@ -70,12 +70,12 @@
                         <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </div>
-                </form>
+                
 
             </div>
 
             <div id ="cajadatoslaborales"  style ="display:none">
-            <form id="formdatoslaborales">
+            
             <!-- especialidad -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                     <select class="input100" name="" id="slcespecialidad">
@@ -136,11 +136,11 @@
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-            </form>
+            
             </div>
 
             <div id ="cajaregister"  style ="display:none">
-            <form id="formregister">
+            
             <!-- correo -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                     <input class="input100" type="text" name="Nombre" placeholder="Email">
@@ -294,7 +294,7 @@
                 $('#boton3').show();
             }else{
 
-                alert(mensajeerror);
+                
                 var mensajeerror="Faltan los siguientes datos : ";
 
                 if(especialidad==0)
@@ -348,7 +348,7 @@
                 else{
                     valido("#inphorario");
                 }
-                
+                alert(mensajeerror);
             }
         }
 
