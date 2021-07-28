@@ -32,12 +32,7 @@
                   <span class="login100-form-title">
                   Bienvenidos a DocNet
                   </span>
-                  <div class="text-center p-t-136">
-                     <a class="txt2" href="#">
-                     Create your Account
-                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                     </a>
-                  </div>
+                  
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                      <input class="input100" type="text" name="email" placeholder="Email">
                      <span class="focus-input100"></span>
@@ -53,7 +48,7 @@
                      </span>
                   </div>
                   <div class="container-login100-form-btn">
-                     <button class="login100-form-btn">
+                     <button class="login100-form-btn" style="background-color: blue">
                      Login
                      </button>
                   </div>
@@ -61,10 +56,22 @@
                      <span class="txt1">
                      Haz olvidó tu
                      </span>
-                     <a class="txt2" href="#">
-                      contraseña?
+                     <a class="txt2" href="#" style="color: blue">
+                     contraseña?
                      </a>
                   </div>
+
+                  <div class="text-center p-t-136">
+                     <span class="txt1">
+                     No tienes una cuenta?
+                     </span>
+                     <a class="txt2" href="http://www.google.com" style="color: blue">
+                     Registrarse
+                     </a>
+                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                     </a>
+                  </div>
+
                </form>
             </div>
          </div>
