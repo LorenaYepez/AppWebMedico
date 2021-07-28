@@ -36,43 +36,45 @@
                 Registrarse
                 </span>
                 <div id ="cajadatospersonales">
-                <!-- nombre completo -->
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="Nombre" placeholder="Nombre Completo"  >
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <!-- fecha de nacimiento -->
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="date" name="pass" placeholder="Fecha de Naciemiento">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
+                <form id="formdatospersonales">
+                    <!-- nombre completo -->
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo"  >
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <!-- fecha de nacimiento -->
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="date" name="fecha" id="inpfechanacimiento" placeholder="Fecha de Nacimiento">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <!-- seleccionar genero -->
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <select class="input100" name="" id="slcsexo">
+                            <option value="0">Seleccionar </option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                        </select>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <!-- seleccionar genero -->
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <select class="input100" name="" id="">
-                        <option value="">Seleccionar </option>
-                        <option value="">Masculino</option>
-                        <option value="">Femenino</option>
-                    </select>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
-                    
-                </div>
-                <!-- añadir foto -->
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="file" name="pass" placeholder="Añadir Foto">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
-                </div>
+                        </span>
+                        
+                    </div>
+                    <!-- añadir foto -->
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="file" name="pass" placeholder="Añadir Foto">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </form>
 
             </div>
 
@@ -232,12 +234,47 @@
         //     btn_2.style.display = 'inline';
         // }
         function siguiente1(){
+
+            var nombre=$("#inpnombre").val();
+            var fecha = $("#inpfechanacimiento").val();
+            var sexo= $("#slcsexo").val();
             
-            $('#cajadatoslaborales').show();$('#cajadatospersonales').hide();
-            $('#boton0').hide();
-            $('#boton1').hide();
-            $('#boton2').show();
-            $('#boton3').hide();
+            if( (nombre.length>0) && (fecha.length>0) &&  (sexo != 0 ) )
+            {
+                $('#cajadatoslaborales').show();$('#cajadatospersonales').hide();
+                $('#boton0').hide();
+                $('#boton1').hide();
+                $('#boton2').show();
+                $('#boton3').hide();
+            }else{
+                var mensajeerror="Faltan los siguientes datos : ";
+                if(nombre.length ==0 )
+                {   
+                    mensajeerror= mensajeerror +"  Nombre Completo  , ";
+                    error("#inpnombre");
+                }else{
+                valido("#inpnombre");
+                }
+                if(fecha.length==0)
+                {
+                    mensajeerror=mensajeerror +" Fecha de Nacimiento ,  ";
+                    error("#inpfechanacimiento");
+                }
+                else{
+                    valido("#inpfechanacimiento");
+                }
+                if(sexo==0)
+                { 
+                    mensajeerror= mensajeerror +"  Sexo  ";
+                    error("#slcsexo");
+                }else{
+                    valido("#slcsexo");
+                }
+                alert(mensajeerror);
+            }
+
+           
+            
 
         }
         function siguiente2(){
@@ -252,6 +289,20 @@
         function mensaje(){
            alert("Registro Exitoso!");
         }
+        function error(tnIdImput)
+            {             
+                $(tnIdImput).css("border-color", "red");
+                $(tnIdImput).css("border-style", "outset");
+                $(tnIdImput).css("border-width", "revert");
+                //$(tnIdImput).append("<br><label>Falta introducir este dato</label>");
+            }
+            function valido(tnIdImput)
+            {             
+                $(tnIdImput).css("border-color", "#47FB13");
+                $(tnIdImput).css("border-style", "outset");
+                $(tnIdImput).css("border-width", "revert");
+            }
+
     </script>
 </body>
 <!-- Mirrored from colorlib.com/etc/lf/Login_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jul 2021 21:33:05 GMT -->
