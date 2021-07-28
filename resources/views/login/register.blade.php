@@ -38,7 +38,7 @@
                 <div id ="cajadatospersonales">
                 <!-- nombre completo -->
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="Nombre" placeholder="Nombre Completo">
+                    <input class="input100" type="text" name="Nombre" placeholder="Nombre Completo"  >
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
                 </div>
                 <!-- fecha de nacimiento -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Fecha de Naciemiento">
+                    <input class="input100" type="date" name="pass" placeholder="Fecha de Naciemiento">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -54,15 +54,20 @@
                 </div>
                 <!-- seleccionar genero -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Seleccionar Genero">
+                    <select class="input100" name="" id="">
+                        <option value="">Seleccionar </option>
+                        <option value="">Masculino</option>
+                        <option value="">Femenino</option>
+                    </select>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
+                    
                 </div>
                 <!-- añadir foto -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Añadir Foto">
+                    <input class="input100" type="file" name="pass" placeholder="Añadir Foto">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -227,6 +232,7 @@
         //     btn_2.style.display = 'inline';
         // }
         function siguiente1(){
+            
             $('#cajadatoslaborales').show();$('#cajadatospersonales').hide();
             $('#boton0').hide();
             $('#boton1').hide();
