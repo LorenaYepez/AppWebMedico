@@ -19,9 +19,8 @@
       <meta name="robots" content="noindex, follow">
    </head>
    <body>
-       <!-- alt="IMG" -->
       <div class="limiter">
-         <div class="container-login100">
+        <div class="container-login100">
             <div class="wrap-login100">
                <div class="login100-pic js-tilt" data-tilt>
                 <img src="assetslogin/images/img-01.png" width="400" height="400px" alt="" style="margin-top: 3px; margin-inside: 3px">
@@ -31,10 +30,9 @@
                 Registrarse
                 </span>
                 <div id ="cajadatospersonales">
-                
                     <!-- nombre completo -->
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        Nombre: <input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo"  >
+                        Nombre<input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo"  >
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -42,7 +40,7 @@
                     </div>
                     <!-- fecha de nacimiento -->
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        Fecha de Nacimiento:<input class="input100" type="date" id="inpfechanacimiento" name="fecha" placeholder="Fecha de Nacimiento">
+                        Fecha de Nacimiento<input class="input100" type="date" id="inpfechanacimiento" name="fecha" placeholder="Fecha de Nacimiento">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -64,7 +62,7 @@
                     </div>
                     <!-- añadir foto -->
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        Seleccione la foto:<input class="input100" type=file name="" placeholder="Foto">
+                        Seleccionar foto<input class="input100" id="foto" type=file name="" placeholder="Foto">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -75,7 +73,6 @@
             </div>
 
             <div id ="cajadatoslaborales"  style ="display:none">
-            
             <!-- especialidad -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                     <select class="input100" name="" id="slcespecialidad">
@@ -90,7 +87,7 @@
                 </div>
                 <!-- numero de matricula -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="number" id="inpmatricula" name="pass" placeholder="Numero de Matricula">
+                    Numero de Matricula<input class="input100" type="number" id="inpmatricula" name="pass" placeholder="Numero de Matricula">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -98,7 +95,7 @@
                 </div>
                 <!-- cv -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="file" id="inpcv" name="pass" placeholder="Curriculum Vitae">
+                Curriculum Vitae<input class="input100" type="file" id="inpcv" name="pass" placeholder="Curriculum Vitae">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -106,7 +103,7 @@
                 </div>
                 <!-- direccion laboral -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="text" id="inpdireccion" name="pass" placeholder="Direccion Laboral">
+                Direccion Laboral<input class="input100" type="text" id="inpdireccion" name="pass" placeholder="Direccion Laboral">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -114,7 +111,7 @@
                 </div>
                 <!-- telefono -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="number" id="inptelefono" name="pass" placeholder="Telefono">
+                 Telefono<input class="input100" type="tel" id="inptelefono" name="pass" placeholder="Telefono">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -122,7 +119,11 @@
                 </div>
                 <!-- ciudad -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="text" id="inpciudad" name="pass" placeholder="Ciudad">
+                    <select class="input100" name="" id="slcciudad">
+                        <option value="0" >Seleccionar Ciudad</option>
+                            <option value="1" >Santa Cruz</option>
+                            <option value="2" >Beni</option>
+                    </select>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -130,20 +131,18 @@
                 </div>
                 <!-- horario -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="time" id="inphorario" name="pass" placeholder="Horario">
+                Horario<input class="input100" type="date" id="inphorario" name="pass" placeholder="Horario">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-            
             </div>
 
             <div id ="cajaregister"  style ="display:none">
-            
             <!-- correo -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="Nombre" placeholder="Email">
+                Email<input class="input100" type="email" name="Nombre" id="correo" placeholder="ejemplo@gmail.com">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -151,7 +150,7 @@
             </div>
             <!-- contraseña -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="Nombre" placeholder="Contraseña">
+                Contraseña<input class="input100" type="password" id="contasena" name="Nombre" placeholder=".............">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -159,7 +158,7 @@
             </div>
             <!-- confirmar contraseña -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="Nombre" placeholder="Confirmar Contraseña">
+                Confirmar Contraseña<input class="input100" type="password" name="Nombre" placeholder=".............">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -194,7 +193,7 @@
             <div id="boton3" class="container-login100-form-btn" style ="display:none">
                 <button class="login100-form-btn"
                 style="background-color:DodgerBlue;"
-                onclick="mensaje()">
+                onclick="Registrar()">
                     Registrarse
                 </button>
             </div>
@@ -282,10 +281,10 @@
             var matricula = $("#inpmatricula").val();
             var direccion = $("#inpdireccion").val();
             var telefono = $("#inptelefono").val();
-            var ciudad = $("#inpciudad").val();
+            var ciudad = $("#slcciudad").val();
             var horario = $("#inphorario").val();
 
-            if( (especialidad != 0 ) && (matricula.length>0) &&(direccion.length>0) && (telefono.length>0) &&(ciudad.length>0) &&(horario.length>0))
+            if( (especialidad != 0 ) && (matricula.length>0) &&(direccion.length>0) && (telefono.length>0) &&(ciudad != 0 ) &&(horario.length>0))
             {
                 $('#cajadatoslaborales').hide();$('#cajaregister').show();
                 $('#boton0').hide();
@@ -294,7 +293,6 @@
                 $('#boton3').show();
             }else{
 
-                
                 var mensajeerror="Faltan los siguientes datos : ";
 
                 if(especialidad==0)
@@ -331,13 +329,12 @@
                     valido("#inptelefono");
                 }
 
-                if(ciudad.length==0)
-                {
-                    mensajeerror=mensajeerror +" Ciudad ,  ";
-                    error("#inpciudad");
-                }
-                else{
-                    valido("#inpciudad");
+                if(ciudad==0)
+                { 
+                    mensajeerror= mensajeerror +"  Ciudad  ";
+                    error("#slcciudad");
+                }else{
+                    valido("#slcciudad");
                 }
 
                 if(horario.length==0)
@@ -352,8 +349,54 @@
             }
         }
 
-        function mensaje(){
-            alert("Registro Exitoso!");
+        function Registrar(){
+            var urlajax="http://localhost:8000/api/medico/registrar";
+            var nombre=$('#inpnombre').val();  
+            var fecha = $("#inpfechanacimiento").val();
+            var sexo= $("#slcsexo").val();
+            var especialidad=$("#slcespecialidad").val();
+            var matricula = $("#inpmatricula").val();
+            var direccion = $("#inpdireccion").val();
+            var telefono = $("#inptelefono").val();
+            var ciudad = $("#slcciudad").val();
+            var horario = $("#inphorario").val();
+            var correo = $("#correo").val();
+            var contrasena = $("#contrasena").val();
+            var foto = $("#foto").val();
+            var datos= {
+                        nombre:nombre, 
+                        fecha:fecha, 
+                        sexo:sexo, 
+                        foto:foto,
+                        // especialidad:especialiadad,
+                        matricula:matricula,
+                        direccion:direccion,
+                        telefono:telefono,
+                        ciudad:ciudad,
+                        horario:horario,
+                        // tnCorreo:"eje@gmail.com"
+                        correo: correo,
+                        contrasena:contrasena,
+                    }; 
+            $.ajax({                    
+                    url: urlajax,
+                    data: {datos} , 
+                    type : 'POST',
+                    dataType: "json",
+                                    
+                    beforeSend:function( ) {   
+                    //   $("#btncarga").show();
+                    },                    
+                    success:function(response) {
+                        console.log(Response);
+                    },
+                error: function (data) {
+                    console.log(data.responseText);
+                },               
+                complete:function( ) {
+                    //var gnNumeroTransaccion,gnSwVerificacionQr;
+                },
+            });
         }
 
         function error(tnIdImput)
@@ -369,6 +412,10 @@
                 $(tnIdImput).css("border-style", "outset");
                 $(tnIdImput).css("border-width", "revert");
             }
+
+            $( ".selector" ).datepicker({
+                minDate: "-7d",
+                maxDate: "+7d"});
 
     </script>
 </body>
