@@ -351,6 +351,7 @@
 
         function Registrar(){
             var urlajax="http://localhost:8000/api/medico/registrar";
+            // var urlajax="http://127.0.0.1:8000/api/medico/registrar";
             var nombre=$('#inpnombre').val();  
             var fecha = $("#inpfechanacimiento").val();
             var sexo= $("#slcsexo").val();
@@ -374,7 +375,6 @@
                         telefono:telefono,
                         ciudad:ciudad,
                         horario:horario,
-                        // tnCorreo:"eje@gmail.com"
                         correo: correo,
                         contrasena:contrasena,
                     }; 
@@ -391,7 +391,8 @@
                         console.log(Response);
                     },
                 error: function (data) {
-                    console.log(data.responseText);
+                    // console.log(data.responseText);
+                    console.log(data);
                 },               
                 complete:function( ) {
                     //var gnNumeroTransaccion,gnSwVerificacionQr;
@@ -412,11 +413,6 @@
                 $(tnIdImput).css("border-style", "outset");
                 $(tnIdImput).css("border-width", "revert");
             }
-
-            $( ".selector" ).datepicker({
-                minDate: "-7d",
-                maxDate: "+7d"});
-
     </script>
 </body>
 <!-- Mirrored from colorlib.com/etc/lf/Login_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jul 2021 21:33:05 GMT -->

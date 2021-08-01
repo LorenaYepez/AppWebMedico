@@ -23,6 +23,8 @@ class MedicoController extends Controller
         $correo= $request->input('correo');
         $contrasena= $request->input('contrasena');
 
+        echo $nombre;
+
         $idPersona =  DB::table('persona')->insert([
             'Nombre' => $nombre,
             'FechaDeNacimiento' => $fecha,
@@ -42,6 +44,7 @@ class MedicoController extends Controller
         // ]);
         
         // return response()->json($request->all());
-        return response()->json($idPersona);
+        // return response()->json($idPersona);
+       
     }
 }
