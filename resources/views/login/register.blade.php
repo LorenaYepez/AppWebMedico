@@ -32,7 +32,7 @@
                 <div id ="cajadatospersonales">
                     <!-- nombre completo -->
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        Nombre<input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo"  >
+                        Nombre<input class="input100" type="text" id="inpnombre" name="Nombre" placeholder="Nombre Completo">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -111,7 +111,7 @@
                 </div>
                 <!-- telefono -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                 Telefono<input class="input100" type="tel" id="inptelefono" name="pass" placeholder="Telefono">
+                Telefono<input class="input100" type="tel" id="inptelefono" name="pass" placeholder="Telefono">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -168,32 +168,29 @@
             </div>
 
             <div id = "boton1" class="container-login100-form-btn">
-                <button class="login100-form-btn"
-                style="background-color:DodgerBlue;"
+                <button class="login100-form-btn" style="background-color: blue"
                 onclick="siguiente1()">
                 Siguiente
                 </button>
             </div>
 
             <div id="boton0"class="container-login100-form-btn">
-                <a href="/login">loginlink</a>
-                <button class="login100-form-btn"
-                style="background-color:DodgerBlue;">
+                <form  method="get" action="/login" class="login100-form-btn" style="background-color: blue">
+                <button class="login100-form-btn" style="background-color: blue">
                     login
                 </button>
+                </form>
             </div>
 
             <div id="boton2" class="container-login100-form-btn" style ="display:none">
-                <button class="login100-form-btn" 
-                style="background-color:DodgerBlue;"
+                <button class="login100-form-btn" style="background-color: blue"
                 onclick="siguiente2()">
                 Siguiente
                 </button>
             </div>
 
             <div id="boton3" class="container-login100-form-btn" style ="display:none">
-                <button class="login100-form-btn"
-                style="background-color:DodgerBlue;"
+                <button class="login100-form-btn" style="background-color: blue"
                 onclick="Registrar()">
                     Registrarse
                 </button>
@@ -250,13 +247,15 @@
                 $('#boton3').hide();
             }else{
                 var mensajeerror="Faltan los siguientes datos : ";
+                
                 if(nombre.length ==0 )
                 {   
                     mensajeerror= mensajeerror +"  Nombre Completo  , ";
                     error("#inpnombre");
                 }else{
-                valido("#inpnombre");
+                    valido("#inpnombre");
                 }
+
                 if(fecha.length==0)
                 {
                     mensajeerror=mensajeerror +" Fecha de Nacimiento ,  ";

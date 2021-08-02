@@ -32,26 +32,29 @@
                   <span class="login100-form-title">
                   Bienvenidos a DocNet
                   </span>
-                  
+                  <!-- correo -->
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                     <input class="input100" type="text" name="email" placeholder="Email">
+                     Email<input class="input100" type="email" name="Nombre" id="correo" placeholder="ejemplo@gmail.com">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
-                     <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
                      </span>
                   </div>
-                  <div class="wrap-input100 validate-input" data-validate="Password is required">
-                     <input class="input100" type="password" name="pass" placeholder="Password">
+                  <!-- contraseña -->
+                  <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                     Contraseña<input class="input100" type="password" id="contrasena" name="Nombre" placeholder=".............">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
-                     <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
                      </span>
                   </div>
+
                   <div class="container-login100-form-btn">
-                     <button class="login100-form-btn" style="background-color: blue">
+                     <button class="login100-form-btn" style="background-color: blue"  onclick="mostrarBoton()">
                      Login
                      </button>
                   </div>
+
                   <div class="text-center p-t-12">
                      <span class="txt1">
                      Haz olvidó tu
@@ -96,6 +99,53 @@
       </script>
       <script src="js/main.js"></script>
       <script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6740451f89d74ffb","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.7.0","si":10}'></script>
+      <script>
+      function mostrarBoton () {
+
+         var email=$("#correo").val();
+         var contrasena=$("#contrasena").val();
+
+            if( (email.length>0) && (contrasena.length>0))
+            {
+               alert("Registro Exitoso");
+            }else{
+
+               var mensajeerror="Faltan los siguientes datos : ";
+               if(email.length==0 )
+               {   
+                  mensajeerror= mensajeerror +"  Ingrese Email  , ";
+                  error("#correo");
+               }else{
+                  valido("#correo");
+               }
+               
+               if(contrasena.length==0)
+               {
+                  mensajeerror=mensajeerror +" Ingrese Contraseña ,  ";
+                  error("#contrasena");
+               }
+               else{
+                  valido("#contrasena");
+               }
+
+               alert(mensajeerror);
+            }
+      }
+
+      function error(tnIdImput)
+      {             
+         $(tnIdImput).css("border-color", "red");
+         $(tnIdImput).css("border-style", "outset");
+         $(tnIdImput).css("border-width", "revert");
+      }
+      
+      function valido(tnIdImput)
+      {             
+         $(tnIdImput).css("border-color", "#47FB13");
+         $(tnIdImput).css("border-style", "outset");
+         $(tnIdImput).css("border-width", "revert");
+      }
+      </script>
    </body>
    <!-- Mirrored from colorlib.com/etc/lf/Login_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jul 2021 21:33:05 GMT -->
 </html>
