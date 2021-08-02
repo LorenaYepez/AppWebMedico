@@ -65,7 +65,7 @@
                      <span class="txt1">
                      No tienes una cuenta?
                      </span>
-                     <a class="txt2" href="http://www.google.com" style="color: blue">
+                     <a class="txt2" href="/" style="color: blue">
                      Registrarse
                      </a>
                      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>

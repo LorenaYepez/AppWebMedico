@@ -150,7 +150,7 @@
             </div>
             <!-- contraseña -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                Contraseña<input class="input100" type="password" id="contasena" name="Nombre" placeholder=".............">
+                Contraseña<input class="input100" type="password" id="contrasena" name="Nombre" placeholder=".............">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -176,6 +176,7 @@
             </div>
 
             <div id="boton0"class="container-login100-form-btn">
+                <a href="/login">loginlink</a>
                 <button class="login100-form-btn"
                 style="background-color:DodgerBlue;">
                     login
@@ -369,7 +370,6 @@
                         fecha:fecha, 
                         sexo:sexo, 
                         foto:foto,
-                        // especialidad:especialiadad,
                         matricula:matricula,
                         direccion:direccion,
                         telefono:telefono,
@@ -380,7 +380,18 @@
                     }; 
             $.ajax({                    
                     url: urlajax,
-                    data: {datos} , 
+                    data: {
+                        nombre:nombre, 
+                        fecha:fecha, 
+                        sexo:sexo, 
+                        foto:foto,
+                        matricula:matricula,
+                        direccion:direccion,
+                        telefono:telefono,
+                        ciudad:ciudad,
+                        horario:horario,
+                        correo: correo,
+                        contrasena:contrasena} , 
                     type : 'POST',
                     dataType: "json",
                                     

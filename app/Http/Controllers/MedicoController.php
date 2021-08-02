@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
+
 class MedicoController extends Controller
 {
     //
     public function registrarMedico(Request $request){
         // $tnTransaccion = $request->input('tnTransaccion');
         // $tnCliente = $request->input('tnCliente');
-        $nombre= $request->input('nombre'); 
+        $nombre= $request->input(['nombre']);
         $fecha= $request->input('fecha'); 
         $sexo= $request->input('sexo'); 
         $foto= $request->input('foto'); 
@@ -25,7 +26,12 @@ class MedicoController extends Controller
 
         echo $nombre;
 
-        $idPersona =  DB::table('persona')->insert([
+        // $idPersona = DB::table('persona')
+        // ->insert([
+        //     'Nombre' => 'Lorena']);
+
+        $idPersona =  DB::table('persona')
+        ->insert([
             'Nombre' => $nombre,
             'FechaDeNacimiento' => $fecha,
             'FotoDePerfil' => $foto,
@@ -33,7 +39,9 @@ class MedicoController extends Controller
             'Correo' => $correo,
             'Contrasena' => $contrasena,
         ]);
-        
+
+        return response()->json($idPersona);
+
         // DB::table('medico')->insertGetId([
         //     'nombre' => $nombre,
         //     'fecha' => $fecha,
@@ -45,6 +53,5 @@ class MedicoController extends Controller
         
         // return response()->json($request->all());
         // return response()->json($idPersona);
-       
     }
 }
