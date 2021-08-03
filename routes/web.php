@@ -26,3 +26,9 @@ Route::get('/login', function () {
     return view('login/register');
 });
 
+
+
+Route::get('/admin', function () {
+    // return view('login/login');
+    return view('admin/administrador');
+});
