@@ -370,7 +370,7 @@
                         fecha:fecha, 
                         sexo:sexo, 
                         foto:foto,
-                        cv:cv;
+                        cv:cv,
                         matricula:matricula,
                         direccion:direccion,
                         telefono:telefono,
