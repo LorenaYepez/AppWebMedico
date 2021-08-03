@@ -21,17 +21,14 @@ class MedicoController extends Controller
         $telefono= $request->input('telefono'); 
         $ciudad= $request->input('ciudad'); 
         $horario= $request->input('horario');
+        $cv= $request->input('cv');
         $correo= $request->input('correo');
         $contrasena= $request->input('contrasena');
 
         echo $nombre;
 
-        // $idPersona = DB::table('persona')
-        // ->insert([
-        //     'Nombre' => 'Lorena']);
-
         $idPersona =  DB::table('persona')
-        ->insert([
+        ->insertGetId([
             'Nombre' => $nombre,
             'FechaDeNacimiento' => $fecha,
             'FotoDePerfil' => $foto,
@@ -40,17 +37,18 @@ class MedicoController extends Controller
             'Contrasena' => $contrasena,
         ]);
 
-        return response()->json($idPersona);
+        $idMedico = DB::table('medico')
+        ->insert([
+            'IdPersona' => $idPersona,
+            'DireccionLaboral ' => $direccion,
+            'Estado ' => 1,
+            'NroMatricula ' => $matricula,
+            'TelefonoLaboral ' => $telefono,
+            'TituloProfesional ' => $cv,
+        ]);
 
-        // DB::table('medico')->insertGetId([
-        //     'nombre' => $nombre,
-        //     'fecha' => $fecha,
-        //     'foto' => $foto,
-        //     'genero' => $genero,
-        //     'correo' => $correo,
-        //     'contrasena' => $contrasena,
-        // ]);
-        
+        return response()->json($idMedico);
+        // return response()->json($idPersona);
         // return response()->json($request->all());
         // return response()->json($idPersona);
     }

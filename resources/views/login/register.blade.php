@@ -175,7 +175,7 @@
             </div>
 
             <div id="boton0"class="container-login100-form-btn">
-                <form  method="get" action="/login" class="login100-form-btn" style="background-color: blue">
+                <form  method="get" action="/" class="login100-form-btn" style="background-color: blue">
                 <button class="login100-form-btn" style="background-color: blue">
                     login
                 </button>
@@ -364,11 +364,13 @@
             var correo = $("#correo").val();
             var contrasena = $("#contrasena").val();
             var foto = $("#foto").val();
+            var cv = $("#inpcv").val();
             var datos= {
                         nombre:nombre, 
                         fecha:fecha, 
                         sexo:sexo, 
                         foto:foto,
+                        cv:cv;
                         matricula:matricula,
                         direccion:direccion,
                         telefono:telefono,

@@ -68,7 +68,7 @@
                      <span class="txt1">
                      No tienes una cuenta?
                      </span>
-                     <a class="txt2" href="/" style="color: blue">
+                     <a class="txt2" href="/login" style="color: blue">
                      Registrarse
                      </a>
                      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -107,7 +107,7 @@
 
             if( (email.length>0) && (contrasena.length>0))
             {
-               alert("Registro Exitoso");
+               <a class="txt2" href="/" style="color: blue">;
             }else{
 
                var mensajeerror="Faltan los siguientes datos : ";
