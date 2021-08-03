@@ -16,10 +16,6 @@ class MedicoController extends Controller
     public function registrarMedico(Request $request){
         // $tnTransaccion = $request->input('tnTransaccion');
         // $tnCliente = $request->input('tnCliente');
-        $validated = $request->validate([
-            'correo' => 'required|unique:correo',
-        ]);
-        
         $correo= $request->input('correo');
         $dato2 = DB::table('persona')
             ->select('Correo')
