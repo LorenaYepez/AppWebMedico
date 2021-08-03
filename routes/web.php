@@ -30,5 +30,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('login', 'Auth\LoginController@login')->name('login');
+
 // Route::get('/', 'MedicoController@registrarMedico')->name('login/login');
 // Route::get('/login', 'MedicoController@registrarMedico');
