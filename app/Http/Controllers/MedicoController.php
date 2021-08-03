@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use DB;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class MedicoController extends Controller
 {
-    //
     public function registrarMedico(Request $request){
         // $tnTransaccion = $request->input('tnTransaccion');
         // $tnCliente = $request->input('tnCliente');
-        $nombre= $request->input(['nombre']);
+        $validated = $request->validate([
+            'correo' => 'required|unique:correo',
+        ]);
+        
+        $correo= $request->input('correo');
+        $dato2 = DB::table('persona')
+            ->select('Correo')
+            ->where('Correo', '=', $correo)
+            ->exists();
+        if($dato2 == true){
+            echo 'existe';
+        }else{
+        $nombre= $request->input('nombre');
         $fecha= $request->input('fecha'); 
         $sexo= $request->input('sexo'); 
         $foto= $request->input('foto'); 
@@ -22,11 +38,8 @@ class MedicoController extends Controller
         $ciudad= $request->input('ciudad'); 
         $horario= $request->input('horario');
         $cv= $request->input('cv');
-        $correo= $request->input('correo');
+        // $correo= $request->input('correo');
         $contrasena= $request->input('contrasena');
-
-        echo $nombre;
-
         $idPersona =  DB::table('persona')
         ->insertGetId([
             'Nombre' => $nombre,
@@ -40,14 +53,16 @@ class MedicoController extends Controller
         $idMedico = DB::table('medico')
         ->insert([
             'IdPersona' => $idPersona,
-            'DireccionLaboral ' => $direccion,
-            'Estado ' => 1,
-            'NroMatricula ' => $matricula,
-            'TelefonoLaboral ' => $telefono,
-            'TituloProfesional ' => $cv,
+            'DireccionLaboral' => $direccion,
+            'Estado' => 1,
+            'NroMatricula' => $matricula,
+            'TelefonoLaboral' => $telefono,
+            'TituloProfesional' => $cv,
         ]);
 
         return response()->json($idMedico);
+        }
+        // return response()->json($idMedico);
         // return response()->json($idPersona);
         // return response()->json($request->all());
         // return response()->json($idPersona);

@@ -300,7 +300,7 @@
                     mensajeerror= mensajeerror +"  Especialidad  ";
                     error("#slcespecialidad");
                 }else{
-                    valido("#slcexpecialida");
+                    valido("#slcespecialidad");
                 }
                 
                 if(matricula.length ==0 )
@@ -357,6 +357,7 @@
             var sexo= $("#slcsexo").val();
             var especialidad=$("#slcespecialidad").val();
             var matricula = $("#inpmatricula").val();
+            var cv = $("#inpcv").val();
             var direccion = $("#inpdireccion").val();
             var telefono = $("#inptelefono").val();
             var ciudad = $("#slcciudad").val();
@@ -364,7 +365,6 @@
             var correo = $("#correo").val();
             var contrasena = $("#contrasena").val();
             var foto = $("#foto").val();
-            var cv = $("#inpcv").val();
             var datos= {
                         nombre:nombre, 
                         fecha:fecha, 
@@ -386,6 +386,7 @@
                         fecha:fecha, 
                         sexo:sexo, 
                         foto:foto,
+                        cv:cv,
                         matricula:matricula,
                         direccion:direccion,
                         telefono:telefono,
