@@ -12,17 +12,23 @@
 */
 
 
-Route::get('/', function () {
-    return view('login/login');
-    // return view('login/register');
-});
-
 // Route::get('/', function () {
-//     return view('welcome');
+//     return view('login/login');
+//     // return view('login/register');
 // });
 
-Route::get('/login', function () {
-    // return view('login/login');
-    return view('login/register');
+Route::get('/', function () {
+    return view('welcome');
 });
 
+// Route::get('/login', function () {
+//     // return view('login/login');
+//     return view('login/register');
+// });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/', 'MedicoController@registrarMedico')->name('login/login');
+// Route::get('/login', 'MedicoController@registrarMedico');

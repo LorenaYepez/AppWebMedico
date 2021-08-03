@@ -100,52 +100,52 @@
       <script src="js/main.js"></script>
       <script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6740451f89d74ffb","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.7.0","si":10}'></script>
       <script>
-      function mostrarBoton () {
+     function mostrarBoton () {
 
-         var email=$("#correo").val();
-         var contrasena=$("#contrasena").val();
+var email=$("#correo").val();
+var contrasena=$("#contrasena").val();
 
-            if( (email.length>0) && (contrasena.length>0))
-            {
-               <a class="txt2" href="/" style="color: blue">;
-            }else{
+   if( (email.length>0) && (contrasena.length>0))
+   {
+      alert("Registro Exitoso");
+   }else{
 
-               var mensajeerror="Faltan los siguientes datos : ";
-               if(email.length==0 )
-               {   
-                  mensajeerror= mensajeerror +"  Ingrese Email  , ";
-                  error("#correo");
-               }else{
-                  valido("#correo");
-               }
-               
-               if(contrasena.length==0)
-               {
-                  mensajeerror=mensajeerror +" Ingrese Contraseña ,  ";
-                  error("#contrasena");
-               }
-               else{
-                  valido("#contrasena");
-               }
-
-               alert(mensajeerror);
-            }
-      }
-
-      function error(tnIdImput)
-      {             
-         $(tnIdImput).css("border-color", "red");
-         $(tnIdImput).css("border-style", "outset");
-         $(tnIdImput).css("border-width", "revert");
+      var mensajeerror="Faltan los siguientes datos : ";
+      if(email.length==0 )
+      {   
+         mensajeerror= mensajeerror +"  Ingrese Email  , ";
+         error("#correo");
+      }else{
+         valido("#correo");
       }
       
-      function valido(tnIdImput)
-      {             
-         $(tnIdImput).css("border-color", "#47FB13");
-         $(tnIdImput).css("border-style", "outset");
-         $(tnIdImput).css("border-width", "revert");
+      if(contrasena.length==0)
+      {
+         mensajeerror=mensajeerror +" Ingrese Contraseña ,  ";
+         error("#contrasena");
       }
-      </script>
-   </body>
+      else{
+         valido("#contrasena");
+      }
+
+      alert(mensajeerror);
+   }
+}
+
+function error(tnIdImput)
+{             
+$(tnIdImput).css("border-color", "red");
+$(tnIdImput).css("border-style", "outset");
+$(tnIdImput).css("border-width", "revert");
+}
+
+function valido(tnIdImput)
+{             
+$(tnIdImput).css("border-color", "#47FB13");
+$(tnIdImput).css("border-style", "outset");
+$(tnIdImput).css("border-width", "revert");
+}
+</script>
+</body>
    <!-- Mirrored from colorlib.com/etc/lf/Login_v1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 24 Jul 2021 21:33:05 GMT -->
 </html>
