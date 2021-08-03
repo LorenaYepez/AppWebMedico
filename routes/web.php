@@ -34,3 +34,9 @@ Route::get('login', 'Auth\LoginController@login')->name('login');
 
 // Route::get('/', 'MedicoController@registrarMedico')->name('login/login');
 // Route::get('/login', 'MedicoController@registrarMedico');
+
+
+Route::get('/admin', function () {
+    // return view('login/login');
+    return view('admin/administrador');
+});
