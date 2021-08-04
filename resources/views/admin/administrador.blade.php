@@ -442,8 +442,12 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+										<th>Foto</th>
 										<th>Nombre</th>
-										<th>Nro Matricula</th>
+										<th>Matricula</th>
+										<th>Telefono</th>
+										<th>Curriculum</th>
+										<th>Accion</th>
 										
 									</tr>
 								</thead>
@@ -452,22 +456,30 @@
 								    @for ($i = 0; $i < count($Medicos); $i++)
 										
 										<tr>
+										<td> {{ $Medicos[$i]->FotoDePerfil}} </td>
 										<td> {{ $Medicos[$i]->Nombre }} </td>
-										<td>{{ $Medicos[$i]->NroMatricula  }}</td>
-										
+										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
+										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
+										<td>
+										<a href="{{ $Medicos[$i]->TituloProfesional }}" class="btn btn-sm btn-warning fa fa-eyes">VER</a>
+										</td>
+										<td>
+											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
+											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
+										</td>
 									</tr>
 
 									@endfor
 
-									
-									
-								
 								</tbody>
 								<tfoot>
 									<tr>
+									    <th>Foto</th>
 										<th>Nombre</th>
-										<th>Nro Matricula</th>
-										
+										<th>Matricula</th>
+										<th>Telefono Trabajo</th>
+										<th>Curriculum</th>
+
 									</tr>
 								</tfoot>
 							</table>
@@ -618,6 +630,10 @@
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
+
+		function mensaje(){
+			alert("Solicitud Aceptada");
+		}
 	</script>
 
 	<!--app JS-->
