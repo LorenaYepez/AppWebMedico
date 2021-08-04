@@ -11,32 +11,30 @@
 |
 */
 
-
-// Route::get('/', function () {
-//     return view('login/login');
-//     // return view('login/register');
-// });
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('login/login');
 });
 
-// Route::get('/login', function () {
-//     // return view('login/login');
-//     return view('login/register');
-// });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('login', 'Auth\LoginController@login')->name('login');
-
-// Route::get('/', 'MedicoController@registrarMedico')->name('login/login');
-// Route::get('/login', 'MedicoController@registrarMedico');
-
+Route::get('/login', function () {
+    return view('login/register');
+});
 
 Route::get('/admin', function () {
-    // return view('login/login');
     return view('admin/administrador');
 });
+
+
+
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('user', 'UserController@index');
+// Route::get('user', 'UserController@store');
+// Route::get('/', 'MedicoController@registrarMedico')->name('login/login');
+// Route::get('/login', 'MedicoController@registrarMedico');

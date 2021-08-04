@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('medico/registrar', 'MedicoController@registrarMedico');
+// Route::post('medico/registrar', 'MedicoController@loginMedico');

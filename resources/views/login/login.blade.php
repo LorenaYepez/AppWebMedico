@@ -34,23 +34,36 @@
                   </span>
                   <!-- correo -->
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                     Email<input class="input100" type="email" name="Nombre" id="correo" placeholder="ejemplo@gmail.com">
+                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                     <input class="input100" type="email" name="Nombre" id="correo"class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                      </span>
+                     @error('email')
+                     <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                     </span>
+                     @enderror
                   </div>
+
                   <!-- contraseña -->
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                     Contraseña<input class="input100" type="password" id="contrasena" name="Nombre" placeholder=".............">
+                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                     <input class="input100" type="password" id="contrasena" name="Nombre" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                      </span>
+                     @error('password')
+                     <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                     </span>
+                     @enderror
                   </div>
 
                   <div class="container-login100-form-btn">
-                     <button class="login100-form-btn" style="background-color: blue"  onclick="mostrarBoton()">
+                     <button class="login100-form-btn" style="background-color: blue"  onclick="Login()">
                      Login
                      </button>
                   </div>
@@ -100,37 +113,37 @@
       <script src="js/main.js"></script>
       <script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6740451f89d74ffb","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.7.0","si":10}'></script>
       <script>
-     function mostrarBoton () {
-
-var email=$("#correo").val();
-var contrasena=$("#contrasena").val();
-
-   if( (email.length>0) && (contrasena.length>0))
-   {
-      alert("Registro Exitoso");
-   }else{
-
-      var mensajeerror="Faltan los siguientes datos : ";
-      if(email.length==0 )
-      {   
-         mensajeerror= mensajeerror +"  Ingrese Email  , ";
-         error("#correo");
-      }else{
-         valido("#correo");
-      }
-      
-      if(contrasena.length==0)
-      {
-         mensajeerror=mensajeerror +" Ingrese Contraseña ,  ";
-         error("#contrasena");
-      }
-      else{
-         valido("#contrasena");
-      }
-
-      alert(mensajeerror);
-   }
-}
+      // function Login(){
+      //             var urlajax="http://localhost:8000/api/medico/login";
+      //             var correo = $("#correo").val();
+      //             var contrasena = $("#contrasena").val();
+      //             var datos= {
+      //                         correo: correo,
+      //                         contrasena:contrasena,
+      //                   }; 
+      //             $.ajax({                    
+      //                   url: urlajax,
+      //                   data: {
+      //                         correo: correo,
+      //                         contrasena:contrasena} , 
+      //                   type : 'POST',
+      //                   dataType: "json",
+                                          
+      //                   beforeSend:function( ) {   
+      //                   //   $("#btncarga").show();
+      //                   },                    
+      //                   success:function(response) {
+      //                         console.log(Response);
+      //                   },
+      //                error: function (data) {
+      //                   // console.log(data.responseText);
+      //                   console.log(data);
+      //                },               
+      //                complete:function( ) {
+      //                   //var gnNumeroTransaccion,gnSwVerificacionQr;
+      //                },
+      //             });
+      //       }
 
 function error(tnIdImput)
 {             
