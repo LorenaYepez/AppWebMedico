@@ -28,14 +28,16 @@
                   height="400px"
                   alt="">
                </div>
-               <form class="login100-form validate-form">
+               <form class="login100-form validate-form" method="POST" action="/login" >
+               @csrf
+
                   <span class="login100-form-title">
                   Bienvenidos a DocNet
                   </span>
                   <!-- correo -->
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
-                     <input class="input100" type="email" name="Nombre" id="correo"class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                     <input class="input100" type="email" name="correo" id="correo" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -50,7 +52,7 @@
                   <!-- contraseña -->
                   <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-                     <input class="input100" type="password" id="contrasena" name="Nombre" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                     <input class="input100" type="password" id="contrasena" name="contrasena" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                      <span class="focus-input100"></span>
                      <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -81,7 +83,7 @@
                      <span class="txt1">
                      No tienes una cuenta?
                      </span>
-                     <a class="txt2" href="/login" style="color: blue">
+                     <a class="txt2" href="/register" style="color: blue">
                      Registrarse
                      </a>
                      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>

@@ -15,13 +15,16 @@ Route::get('/', function () {
     return view('login/login');
 });
 
-Route::get('/login', function () {
+Route::get('/register', function () {
     return view('login/register');
 });
 
 Route::get('/admin', function () {
     return view('admin/administrador');
 });
+Route::post('/login', 'LoginPropioController@login');
+Route::get('/admin', 'HomeController@index');
+//Route::post('/login', 'HomeController@login');
 
 
 

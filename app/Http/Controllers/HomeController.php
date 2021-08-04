@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Redirect;
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+   
+
     }
 
     /**
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona ");  
+        return view('admin/administrador' , ["Medicos"=> $loConsultaCliente]);
     }
+    
+
+  
 }
