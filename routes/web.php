@@ -1,5 +1,5 @@
 <?php
-
+use App\Mail\Bienvenida;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('login/login');
 });
@@ -26,11 +25,15 @@ Route::post('/login', 'LoginPropioController@login');
 Route::get('/admin', 'HomeController@index');
 //Route::post('/login', 'HomeController@login');
 
+// Route::get('/mail', function(){
+//     return view('bienvenida');
+// });
 
 
-
-
-
+// Route::get('/enviar', function(){
+//     Mail::to('unaprueba@gmail.com')->send(new Bienvenida);
+//     return "mensaje enviado";
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');

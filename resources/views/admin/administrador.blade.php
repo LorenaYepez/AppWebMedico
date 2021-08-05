@@ -424,6 +424,7 @@
 								<div class="dropdown-divider mb-0"></div>
 							</li>
 							<li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+							
 							</li>
 						</ul>
 					</div>
@@ -457,15 +458,17 @@
 										
 										<tr>
 										<td>
-										<a><img src = "fotomedico/medico-2.jpg" class="user-img" alt="user avatar" alt=""></a>
+										<!-- <a><img src = "fotomedico/medico-2.jpg" class="user-img" alt="user avatar" alt=""></a> -->
+										<a><img src="{{$Medicos[$i]->FotoDePerfil}}" class="user-img" alt="user avatar" alt=""></a>
 										</td>
 
-										<td> {{ $Medicos[$i]->Nombre }} </td>
+										<td> {{$Medicos[$i]->Nombre }} </td>
 										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
 										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
 
 										<td>
-										<a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a>
+										<!-- <a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a> -->
+										<a target="_blank" href="{{$Medicos[$i]->TituloProfesional}}" class="btn btn-sm btn-warning">VER</a>
 										</td>
 
 										<td>
