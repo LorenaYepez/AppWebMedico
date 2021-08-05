@@ -56,7 +56,7 @@
 				</li>
 				<li>
 					<a href="" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
+						<div class="parent-icon"><i class="bx bx-message"></i>
 						</div>
 						<div class="menu-title">Solicitud</div>
 					</a>
@@ -64,7 +64,7 @@
 				</li>
                 <li>
 					<a href="" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
+						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
 						<div class="menu-title">Medicos</div>
 					</a>
@@ -447,7 +447,7 @@
 										<th>Matricula</th>
 										<th>Telefono</th>
 										<th>Curriculum</th>
-										<th>Accion</th>
+										<th>Opciones</th>
 										
 									</tr>
 								</thead>
@@ -456,13 +456,18 @@
 								    @for ($i = 0; $i < count($Medicos); $i++)
 										
 										<tr>
-										<td> {{ $Medicos[$i]->FotoDePerfil}} </td>
+										<td>
+										<a><img src = "fotomedico/medico-2.jpg" class="user-img" alt="user avatar" alt=""></a>
+										</td>
+
 										<td> {{ $Medicos[$i]->Nombre }} </td>
 										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
 										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
+
 										<td>
-										<a href="{{ $Medicos[$i]->TituloProfesional }}" class="btn btn-sm btn-warning fa fa-eyes">VER</a>
+										<a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a>
 										</td>
+
 										<td>
 											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
 											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
@@ -479,6 +484,7 @@
 										<th>Matricula</th>
 										<th>Telefono Trabajo</th>
 										<th>Curriculum</th>
+										<th>Opciones</th>
 
 									</tr>
 								</tfoot>

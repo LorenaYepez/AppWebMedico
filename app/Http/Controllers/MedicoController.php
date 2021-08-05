@@ -28,6 +28,9 @@ class MedicoController extends Controller
             $fecha= $request->input('fecha'); 
             $sexo= $request->input('sexo'); 
             $foto= $request->input('foto'); 
+            // if ($request->hasFile('UrlImagen')){
+            //     $file = $request->file("UrlImagen");
+            // }    
             $matricula= $request->input('matricula'); 
             $direccion= $request->input('direccion'); 
             $telefono= $request->input('telefono'); 
@@ -57,7 +60,8 @@ class MedicoController extends Controller
                 'TituloProfesional' => $cv,
             ]);
     
-            return response()->json($idMedico);
+            // return response()->json($idMedico);
+            return $result;
         }
         // }
         // return response()->json($idMedico);
@@ -66,12 +70,4 @@ class MedicoController extends Controller
         // return response()->json($idPersona);
     }
 
-    // public function loginMedico(){
-        
-    //     $resul = $this->validate(request(), [
-    //         'correo' => 'coreo|required|string',
-    //         'contrasena' => 'required|string',
-    //     ]);
-    //     return "Hola mundo";
-    // }
 }

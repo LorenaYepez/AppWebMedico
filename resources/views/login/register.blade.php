@@ -62,7 +62,7 @@
                     </div>
                     <!-- añadir foto -->
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        Seleccionar foto<input class="input100" id="foto" type=file name="" placeholder="Foto">
+                        Seleccionar foto<input class="input100" id="foto" type=file name="" accept="image/png,image/jpeg" placeholder="Foto">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                 </div>
                 <!-- cv -->
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                Curriculum Vitae<input class="input100" type="file" id="inpcv" name="pass" placeholder="Curriculum Vitae">
+                Curriculum Vitae<input class="input100" type="file" id="inpcv" name="pass"  accept="application/pdf" placeholder="Curriculum Vitae">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                     <i class="fa fa-lock" aria-hidden="true"></i>
