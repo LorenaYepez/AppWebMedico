@@ -25,7 +25,9 @@ Route::post('/login', 'LoginPropioController@login');
 Route::get('/admin', 'HomeController@index');
 //Route::post('/login', 'HomeController@login');
 
-
+// Route::get('/mail', function(){
+//     return view('bienvenida');
+// });
 
 
 // Route::get('/enviar', function(){
