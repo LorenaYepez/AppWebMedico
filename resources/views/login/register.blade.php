@@ -62,7 +62,7 @@
                     </div>
                     <!-- añadir foto -->
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        Seleccionar foto<input class="input100" id="foto" type=file name="" accept="image/png,image/jpeg" placeholder="Foto">
+                        Seleccionar foto<input class="input100" id="foto" type=file name="" accept="image/png,image/jpeg ,image/jpg " placeholder="Foto">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -351,6 +351,8 @@
         }
 
         function Registrar(){
+            var formData = new FormData();
+            
             var urlajax="http://localhost:8000/api/medico/registrar";
             // var urlajax="http://127.0.0.1:8000/api/medico/registrar";
             var nombre=$('#inpnombre').val();  
@@ -358,36 +360,42 @@
             var sexo= $("#slcsexo").val();
             var especialidad=$("#slcespecialidad").val();
             var matricula = $("#inpmatricula").val();
-            var cv = $("#inpcv").val();
+            var cv = $('#inpcv').prop("files")[0]; // $("#inpcv").val();
             var direccion = $("#inpdireccion").val();
             var telefono = $("#inptelefono").val();
             var ciudad = $("#slcciudad").val();
             var horario = $("#inphorario").val();
             var correo = $("#correo").val();
             var contrasena = $("#contrasena").val();
-            var foto = $("#foto").val();
-            var datos= {
-                        nombre:nombre, 
-                        fecha:fecha, 
-                        sexo:sexo, 
-                        foto:foto,
-                        cv:cv,
-                        matricula:matricula,
-                        direccion:direccion,
-                        telefono:telefono,
-                        ciudad:ciudad,
-                        horario:horario,
-                        correo: correo,
-                        contrasena:contrasena,
-                    }; 
+            //var foto = $("#foto").val();
+          //  formData.append('cv',cv);
+            formData.append( 'cv', $( '#inpcv' )[0].files[0] );
+            formData.append( 'foto', $( '#foto' )[0].files[0] );
+         
+                    formData.append( 'nombre', nombre );
+                    formData.append( 'fecha', fecha );
+                    formData.append( 'sexo', sexo );
+                  //  formData.append( 'foto', foto );
+                    formData.append( 'matricula', matricula );
+                    formData.append( 'nombre', nombre );
+
+                    formData.append( 'direccion', direccion );
+                    formData.append( 'telefono', telefono );
+                    formData.append( 'ciudad', ciudad );
+
+                    formData.append( 'horario', horario );
+                    formData.append( 'correo', correo );
+                    formData.append( 'contrasena', contrasena );
             $.ajax({                    
                     url: urlajax,
-                    data: {
+                    
+                    /*data: {
                         nombre:nombre, 
                         fecha:fecha, 
                         sexo:sexo, 
                         foto:foto,
-                        cv:cv,
+                        //cv:cv,
+                         formData:formData,
                         matricula:matricula,
                         direccion:direccion,
                         telefono:telefono,
@@ -395,14 +403,23 @@
                         horario:horario,
                         correo: correo,
                         contrasena:contrasena} , 
+                        */
+                    data:formData ,
                     type : 'POST',
-                    dataType: "json",
+                    //dataType: "json",
+                    processData: false,  // tell jQuery not to process the data
+                     contentType: false  ,  // tell jQuery not to set contentType
                                     
                     beforeSend:function( ) {   
                     //   $("#btncarga").show();
                     },                    
                     success:function(response) {
-                        console.log(Response);
+                        console.log(Response); 
+                        if(response>0)
+                        {
+                            alert("se a registrado con exito");
+                        }
+
                     },
                 error: function (data) {
                     // console.log(data.responseText);

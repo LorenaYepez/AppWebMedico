@@ -16,6 +16,29 @@ class MedicoController extends Controller
     public function registrarMedico(Request $request){
         // $tnTransaccion = $request->input('tnTransaccion');
         // $tnCliente = $request->input('tnCliente');
+
+        $file=$request->file("cv");
+        $nombre = "pdf_".time().".pdf";
+
+            $ruta = public_path("pdf/".$nombre);
+
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+            }else{
+                dd("NO ES UN PDF");
+           }
+
+
+            $file=$request->file("foto");
+            $nombre = "imagen_".time().".".$file->guessExtension();;
+
+            $rutafoto = public_path("fotomedico/".$nombre);
+
+       
+                copy($file, $rutafoto);
+          
+
+
         $correo= $request->input('correo');
         $dato2 = DB::table('persona')
             ->select('Correo')
@@ -27,7 +50,7 @@ class MedicoController extends Controller
             $nombre= $request->input('nombre');
             $fecha= $request->input('fecha'); 
             $sexo= $request->input('sexo'); 
-            $foto= $request->input('foto'); 
+            $foto=  $rutafoto; 
             // if ($request->hasFile('UrlImagen')){
             //     $file = $request->file("UrlImagen");
             // }    
@@ -36,7 +59,22 @@ class MedicoController extends Controller
             $telefono= $request->input('telefono'); 
             $ciudad= $request->input('ciudad'); 
             $horario= $request->input('horario');
-            $cv= $request->input('cv');
+            $cv=  $ruta;
+
+           
+           
+            
+//            $nombre = "pdf_".time().".pdf";
+
+  //          $ruta = public_path("pdf/".$nombre);
+
+           // if($file->guessExtension()=="pdf"){
+              //  copy($file, $ruta);
+           // }else{
+            //    dd("NO ES UN PDF");
+           // }
+
+
             // $correo= $request->input('correo');
             $contrasena= $request->input('contrasena');
 
@@ -60,8 +98,9 @@ class MedicoController extends Controller
                 'TituloProfesional' => $cv,
             ]);
     
-            // return response()->json($idMedico);
-            return $result;
+         return response()->json($idMedico);
+           // return $result;
+            
         }
         // }
         // return response()->json($idMedico);
