@@ -27,6 +27,7 @@ class MedicoController extends Controller
             }else{
                 dd("NO ES UN PDF");
            }
+           $rutacv = "localhost:8000/pdf/".$nombre;
 
 
             $file=$request->file("foto");
@@ -36,6 +37,7 @@ class MedicoController extends Controller
 
        
                 copy($file, $rutafoto);
+                $rutafoto = "localhost:8000/fotomedico/".$nombre;
           
 
 
@@ -59,7 +61,7 @@ class MedicoController extends Controller
             $telefono= $request->input('telefono'); 
             $ciudad= $request->input('ciudad'); 
             $horario= $request->input('horario');
-            $cv=  $ruta;
+            $cv=  $rutacv;
 
            
            
