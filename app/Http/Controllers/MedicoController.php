@@ -116,28 +116,42 @@ class MedicoController extends Controller
         }
     }
 
+    // public function aceptarpaciente(Request $request)
+    // {
+    //     $idpaciente = $request->input('idpaciente');
+    //     $idmedico = $request->input('idmedico');
+    //     $laUpdate=DB::table('Medico')
+    //     ->where('IdMedico', $idmedico)
+    //     ->update(['Estado' => 3]);
+    //     if($laUpdate)
+    //     {
+    //         echo 1;
+    //     }else{
+    //         echo 2;
+    //     }
+    // }
+
     public function aceptarpaciente(Request $request)
     {
         $idpaciente = $request->input('idpaciente');
-        $idmedico = $request->input('idmedico');
-        $laUpdate=DB::table('Medico')
-        ->where('IdMedico', $idmedico)
-        ->update(['Estado' => 3]);
+        // $idmedico = $request->input('idmedico');
+        $laUpdate=DB::table('Paciente')
+        ->where('IdPaciente', $idpaciente)
+        ->update(['Estado' => 2]);
         if($laUpdate)
         {
             echo 1;
         }else{
             echo 2;
         }
-
     }
 
     public function rechazarpaciente(Request $request)
     {
         $idpaciente = $request->input('idpaciente');
-        $idmedico = $request->input('idmedico');
-        $laUpdate=DB::table('Medico')
-        ->where('IdMedico', $idmedico)
+        // $idmedico = $request->input('idmedico');
+        $laUpdate=DB::table('Paciente')
+        ->where('IdPaciente', $idpaciente)
         ->update(['Estado' => 3]);
         if($laUpdate)
         {

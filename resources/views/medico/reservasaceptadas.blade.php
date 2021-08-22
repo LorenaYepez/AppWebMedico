@@ -54,20 +54,22 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
-				<li>
-					<a href="" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-message"></i>
-						</div>
-						<div class="menu-title">Citas</div>
-					</a>
-					
-				</li>
+				
                 <li>
-					<a href="" class="has-arrow">
+					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
-						<div class="menu-title">Pacientes</div>
+						<div class="menu-title">Medicos</div>
 					</a>
+                     <ul>
+                          <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i> Solicitudes  </a>
+						</li>
+						<li> <a href="/medicosaceptados"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
+						</li>
+						<li> <a href="/medicosrechazados"><i class="bx bx-right-arrow-alt"></i> Medicos Rechazados </a>
+						</li>
+						
+					</ul>
 					
 				</li>
 
@@ -82,18 +84,22 @@
 				<nav class="navbar navbar-expand">
 					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
 					</div>
+
 					<div class="search-bar flex-grow-1">
 						<div class="position-relative search-bar-box">
 							<input type="text" class="form-control search-control" placeholder="Type to search..."> <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
 							<span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
 						</div>
 					</div>
+
 					<div class="top-menu ms-auto">
 						<ul class="navbar-nav align-items-center">
-							<li class="nav-item mobile-search-icon">
+							
+						<li class="nav-item mobile-search-icon">
 								<a class="nav-link" href="#">	<i class='bx bx-search'></i>
 								</a>
 							</li>
+
 							<li class="nav-item dropdown dropdown-large">
 								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i class='bx bx-category'></i>
 								</a>
@@ -432,73 +438,61 @@
 			</div>
 		</header>
 		<!--end header -->
-		<!--start page wrapper -->
+		<!--start page wrapper hola -->
 		<div class="page-wrapper">
 			<div class="page-content">
                 <div class="row">
                     <div class="col-md-12">
                     <div class="card radius-10">
-                 <div class="card-body">
+						<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
+
+							<div class="panel-footer">
+            <button type="submit" class="btn btn-success">buscar</button>
+        </div>
 								<thead>
 									<tr>
-										<th>Foto</th>
+                                    <th>Foto</th>
 										<th>Nombre</th>
 										<th>Fecha</th>
 										<th>Hora</th>
 										<th>Estado</th>
-										<th>Opciones</th>
 										
 									</tr>
 								</thead>
 								<tbody>
 
-							@for ($i = 0; $i < count($Pacientes); $i++)
-							<tr>
-								
-							    <td>
-									<a><img src="{{$Pacientes[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
-								</td>
+								    @for ($i = 0; $i < count($Pacientes); $i++)
+										
+										<tr>
+											
+                                        <td>
+                                            <a><img src="{{$Pacientes[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
+								        </td>
 
-								<td> {{$Pacientes[$i]->Nombre}} </td>
+										<td> {{$Pacientes[$i]->Nombre}} </td>
+                                        
+                                        <td>{{ $Pacientes[$i]->FechaReserva }}</td>
+                                        
+                                        <td>{{ $Pacientes[$i]->Hora }}</td>
 
-								<td>{{ $Pacientes[$i]->FechaReserva }}</td>
+										<td>
+                                            <a href="javascript:;" class="btn btn-sm btn-primary">ACEPTADO</a>
+                                        </td>
+									</tr>
 
-								<td>{{ $Pacientes[$i]->Hora }}</td>
-
-								<td>
-								<!-- @if($Pacientes[$i]->Estado == "0")
-								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
-								@endif
-								-->
-								@if ($Pacientes[$i]->Estado == "0")
-								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
-								@elseif ($Pacientes[$i]->Estado == "2")
-								<a href="javascript:;" class="btn btn-sm btn-primary">ACEPTADO</a>
-								@elseif ($Pacientes[$i]->Estado == "3")
-								<a href="javascript:;" class="btn btn-sm btn-danger">RECHAZADO</a>
-								@endif
-								</td>
-								
-								<td>
-									<a onclick="aceptarpaciente( <?php echo  $Pacientes[$i]->IdPaciente ?> )" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
-									<a onclick="rechazarpaciente( <?php echo $Pacientes[$i]->IdPaciente ?> )" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
-								</td>
-
-							</tr>
-							@endfor
+									@endfor
 
 								</tbody>
 								<tfoot>
 									<tr>
-									<th>Foto</th>
-									<th>Nombre</th>
-									<th>Fecha</th>
-									<th>Hora</th>
-									<th>Estado</th>
-									<th>Opciones</th>
-										
+									    <th>Foto</th>
+										<th>Nombre</th>
+										<th>Matricula</th>
+										<th>Telefono Trabajo</th>
+										<th>Curriculum</th>
+										<th>Opciones</th>
 
 									</tr>
 								</tfoot>
@@ -506,9 +500,8 @@
 						</div>
 					</div>
 			</div>
-                    </div>
-                </div>					
-
+                </div>
+                </div>
 			</div>
 		</div>
 		<!--end page wrapper -->
@@ -645,66 +638,9 @@
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
-	</script>
-	
-	<script>
+
 		function mensaje(){
 			alert("Solicitud Aceptada");
-		}
-		
-		function aceptarpaciente(id)
-		{
-			var urlajax="http://localhost:8000/api/aceptarpaciente";
-			$.ajax({                    
-				url: urlajax,
-                data: {idpaciente : id} , 
-                type : 'POST',
-                dataType: "json",
-                                    
-                    beforeSend:function( ) {   
-						$("#btncarga").show();
-						$("#bntprepararpago").hide();
-					},                    
-					
-					success:function(response) {
-						location.reload();	                    
-					},
-					
-					error: function (data) {
-						console.log(data.responseText);
-                    },               
-					
-					complete:function( ) {
-                                            
-                    },
-			}); 
-		}
-		function rechazarpaciente(id)
-		{
-			var urlajax="http://localhost:8000/api/rechazarpaciente";
-			$.ajax({                    
-				url: urlajax,
-                data: {idpaciente : id}, 
-                type : 'POST',
-                dataType: "json",
-                                    
-                beforeSend:function( ) {   
-					$("#btncarga").show();
-					$("#bntprepararpago").hide();                        
-                },                   
-				
-				success:function(response) {
-					location.reload();
-				},
-
-                error: function (data) {
-					console.log(data.responseText);
-                },             
-				
-				complete:function( ) {
-
-				},
-            }); 
 		}
 	</script>
 

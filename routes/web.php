@@ -40,6 +40,9 @@ Route::get('/solicitud', 'HomeController@index');
 Route::get('/medicosaceptados', 'HomeController@MedicosAceptados');
 Route::get('/medicosrechazados', 'HomeController@MedicosRechazados');
 
+Route::get('/reservasaceptadas', 'HomeController@PacientesAceptados');
+Route::get('/reservasrechazadas', 'HomeController@PacientesRechazados');
+
 //Route::post('/login', 'HomeController@login');
 
 // Route::get('/mail', function(){
