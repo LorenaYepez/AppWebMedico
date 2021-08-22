@@ -653,7 +653,18 @@
 			}
 		}
 	</script>
+    
+    <script src="https://meet.jit.si/external_api.js" type="application/javascript"></script>
 
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/flutter_service_worker.js');
+    });
+    }
+    </script>
+    <script src="https://meet.jit.si/external_api.js" type="application/javascript"></script>
+    <script src="main.dart.js" type="application/javascript"></script>
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
 </body>
