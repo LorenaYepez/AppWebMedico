@@ -21,8 +21,21 @@ Route::get('/register', function () {
 Route::get('/admin', function () {
     return view('admin/administrador');
 });
+
+Route::get('/medico', function () {
+    return view('medico/medicos');
+});
+
+Route::get('/videollamada', function () {
+    return view('videollamada/video');
+});
+
 Route::post('/login', 'LoginPropioController@login');
+
 Route::get('/admin', 'HomeController@index');
+
+Route::get('/medico', 'HomeController@index1');
+
 //Route::post('/login', 'HomeController@login');
 
 // Route::get('/mail', function(){

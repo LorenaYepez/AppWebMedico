@@ -58,7 +58,7 @@
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-message"></i>
 						</div>
-						<div class="menu-title">Solicitud</div>
+						<div class="menu-title">Citas</div>
 					</a>
 					
 				</li>
@@ -66,7 +66,7 @@
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
-						<div class="menu-title">Medicos</div>
+						<div class="menu-title">Pacientes</div>
 					</a>
 					
 				</li>
@@ -82,22 +82,18 @@
 				<nav class="navbar navbar-expand">
 					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
 					</div>
-
 					<div class="search-bar flex-grow-1">
 						<div class="position-relative search-bar-box">
 							<input type="text" class="form-control search-control" placeholder="Type to search..."> <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
 							<span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
 						</div>
 					</div>
-
 					<div class="top-menu ms-auto">
 						<ul class="navbar-nav align-items-center">
-							
-						<li class="nav-item mobile-search-icon">
+							<li class="nav-item mobile-search-icon">
 								<a class="nav-link" href="#">	<i class='bx bx-search'></i>
 								</a>
 							</li>
-
 							<li class="nav-item dropdown dropdown-large">
 								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i class='bx bx-category'></i>
 								</a>
@@ -436,67 +432,73 @@
 			</div>
 		</header>
 		<!--end header -->
-		<!--start page wrapper hola -->
+		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">
                 <div class="row">
                     <div class="col-md-12">
                     <div class="card radius-10">
-						<div class="card-body">
+                 <div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
 								<thead>
 									<tr>
 										<th>Foto</th>
 										<th>Nombre</th>
-										<th>Matricula</th>
-										<th>Telefono</th>
-										<th>Curriculum</th>
+										<th>Fecha</th>
+										<th>Hora</th>
+										<th>Estado</th>
 										<th>Opciones</th>
 										
 									</tr>
 								</thead>
 								<tbody>
 
-								    @for ($i = 0; $i < count($Medicos); $i++)
-										
-										<tr>
-											
-										<td>
-										<!-- <a><img src = "fotomedico/medico-2.jpg" class="user-img" alt="user avatar" alt=""></a> -->
-										<a><img src="{{$Medicos[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
-										</td>
+							@for ($i = 0; $i < count($Pacientes); $i++)
+							<tr>
+								
+							    <td>
+									<a><img src="{{$Pacientes[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
+								</td>
 
-										<td> {{$Medicos[$i]->Nombre }} </td>
-										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
-										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
+								<td> {{$Pacientes[$i]->Nombre}} </td>
 
-										<td>
-										<!-- <a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a> -->
-										<a target="_blank" href="{{$Medicos[$i]->TituloProfesional}}" class="btn btn-sm btn-warning">VER</a>
-										</td>
+								<td>{{ $Pacientes[$i]->FechaReserva }}</td>
 
-										<td>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
-										</td>
-									</tr>
+								<td>{{ $Pacientes[$i]->Hora }}</td>
 
-									@endfor
+								<td>
+								<!-- @if($Pacientes[$i]->Estado == "0")
+								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
+								@endif
+								-->
+								@if ($Pacientes[$i]->Estado == "0")
+								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
+								@elseif ($Pacientes[$i]->Estado == "1")
+								<a href="javascript:;" class="btn btn-sm btn-primary">ACEPTADO</a>
+								@elseif ($Pacientes[$i]->Estado == "2")
+								<a href="javascript:;" class="btn btn-sm btn-danger">RECHAZADO</a>
+								@endif
+								</td>
+								
+								<td>
+									<a onclick="Confirmar()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
+									<a onclick="update()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
+								</td>
+
+							</tr>
+							@endfor
 
 								</tbody>
 								<tfoot>
 									<tr>
-									    <th>Foto</th>
-										<th>Nombre</th>
-										<th>Matricula</th>
-										<th>Telefono Trabajo</th>
-										<th>Curriculum</th>
-										<th>Opciones</th>
+									<th>Foto</th>
+									<th>Nombre</th>
+									<th>Fecha</th>
+									<th>Hora</th>
+									<th>Estado</th>
+									<th>Opciones</th>
+										
 
 									</tr>
 								</tfoot>
@@ -504,8 +506,9 @@
 						</div>
 					</div>
 			</div>
-                </div>
-                </div>
+                    </div>
+                </div>					
+
 			</div>
 		</div>
 		<!--end page wrapper -->
@@ -642,9 +645,21 @@
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
-
+	</script>
+	
+	<script>
 		function mensaje(){
 			alert("Solicitud Aceptada");
+		}
+		function Confirmar(){
+			var retVal = confirm("¿Seguro desea continuar?");
+			if( retVal == true ){
+				document.write ("OK, RESERVA ACEPTADA");
+				return true;
+			}else{
+				document.write ("NO SE GUARDÓ EL REGISTRO");
+			    return false;
+			}
 		}
 	</script>
 

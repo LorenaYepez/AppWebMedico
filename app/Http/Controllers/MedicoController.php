@@ -35,12 +35,10 @@ class MedicoController extends Controller
 
             $rutafoto = public_path("fotomedico/".$nombre);
 
-       
+    
                 copy($file, $rutafoto);
                 $rutafoto = "localhost:8000/fotomedico/".$nombre;
-          
-
-
+        
         $correo= $request->input('correo');
         $dato2 = DB::table('persona')
             ->select('Correo')
@@ -53,31 +51,12 @@ class MedicoController extends Controller
             $fecha= $request->input('fecha'); 
             $sexo= $request->input('sexo'); 
             $foto=  $rutafoto; 
-            // if ($request->hasFile('UrlImagen')){
-            //     $file = $request->file("UrlImagen");
-            // }    
             $matricula= $request->input('matricula'); 
             $direccion= $request->input('direccion'); 
             $telefono= $request->input('telefono'); 
             $ciudad= $request->input('ciudad'); 
             $horario= $request->input('horario');
             $cv=  $rutacv;
-
-           
-           
-            
-//            $nombre = "pdf_".time().".pdf";
-
-  //          $ruta = public_path("pdf/".$nombre);
-
-           // if($file->guessExtension()=="pdf"){
-              //  copy($file, $ruta);
-           // }else{
-            //    dd("NO ES UN PDF");
-           // }
-
-
-            // $correo= $request->input('correo');
             $contrasena= $request->input('contrasena');
 
             $idPersona =  DB::table('persona')
@@ -99,16 +78,15 @@ class MedicoController extends Controller
                 'TelefonoLaboral' => $telefono,
                 'TituloProfesional' => $cv,
             ]);
-    
-         return response()->json($idMedico);
-           // return $result;
-            
+
+            $to = $correo;
+            $subject = "Confirmacion de  cuenta ";
+            $message = "este mensaje es para confirmacion de la cuenta ";
+
+            mail($to, $subject, $message);
+
+        return response()->json($idMedico);
         }
-        // }
-        // return response()->json($idMedico);
-        // return response()->json($idPersona);
-        // return response()->json($request->all());
-        // return response()->json($idPersona);
     }
 
 }

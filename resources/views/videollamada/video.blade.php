@@ -58,7 +58,7 @@
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-message"></i>
 						</div>
-						<div class="menu-title">Solicitud</div>
+						<div class="menu-title">Citas</div>
 					</a>
 					
 				</li>
@@ -66,7 +66,7 @@
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
-						<div class="menu-title">Medicos</div>
+						<div class="menu-title">Pacientes</div>
 					</a>
 					
 				</li>
@@ -82,22 +82,18 @@
 				<nav class="navbar navbar-expand">
 					<div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
 					</div>
-
 					<div class="search-bar flex-grow-1">
 						<div class="position-relative search-bar-box">
 							<input type="text" class="form-control search-control" placeholder="Type to search..."> <span class="position-absolute top-50 search-show translate-middle-y"><i class='bx bx-search'></i></span>
 							<span class="position-absolute top-50 search-close translate-middle-y"><i class='bx bx-x'></i></span>
 						</div>
 					</div>
-
 					<div class="top-menu ms-auto">
 						<ul class="navbar-nav align-items-center">
-							
-						<li class="nav-item mobile-search-icon">
+							<li class="nav-item mobile-search-icon">
 								<a class="nav-link" href="#">	<i class='bx bx-search'></i>
 								</a>
 							</li>
-
 							<li class="nav-item dropdown dropdown-large">
 								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i class='bx bx-category'></i>
 								</a>
@@ -436,67 +432,67 @@
 			</div>
 		</header>
 		<!--end header -->
-		<!--start page wrapper hola -->
+		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">
                 <div class="row">
                     <div class="col-md-12">
                     <div class="card radius-10">
-						<div class="card-body">
-						<div class="table-responsive">
-							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
+                        <div class="card-body">
+                        <!-- html agregado-->
+    <div class="col-md-4">
+        <div class="input-group">
+            <!-- <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre"> -->
+            <div class="form-control validate-input" data-validate="Password is required">
+                        <select class="input100" name="" id="slcsexo">
+                            <option value="0" >Seleccionar Genero</option>
+                            <option value="1" >Masculino</option>
+                            <option value="2" >Femenino</option>
+                        </select>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        
+                    </div>
+            <!-- <div class="input-group-append"><span class="input-group-text">Buscar</span></div> -->
             <button type="submit" class="btn btn-success">buscar</button>
         </div>
+        <div id="resultados" class="bg-light border"></div>
+    </div>
+<!-- fin del html agregado-->
+						<div class="table-responsive">
+							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>Foto</th>
 										<th>Nombre</th>
-										<th>Matricula</th>
-										<th>Telefono</th>
-										<th>Curriculum</th>
+										<th>Fecha</th>
+										<th>Hora</th>
 										<th>Opciones</th>
 										
 									</tr>
 								</thead>
+
 								<tbody>
-
-								    @for ($i = 0; $i < count($Medicos); $i++)
-										
-										<tr>
-											
-										<td>
-										<!-- <a><img src = "fotomedico/medico-2.jpg" class="user-img" alt="user avatar" alt=""></a> -->
-										<a><img src="{{$Medicos[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
-										</td>
-
-										<td> {{$Medicos[$i]->Nombre }} </td>
-										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
-										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
-
-										<td>
-										<!-- <a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a> -->
-										<a target="_blank" href="{{$Medicos[$i]->TituloProfesional}}" class="btn btn-sm btn-warning">VER</a>
-										</td>
-
-										<td>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
-										</td>
-									</tr>
-
-									@endfor
+                                
+                                <tr>
+                                    <td>
+                                        <a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
+										<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">CANCELAR</a>
+                                    </td>
+                                </tr>
 
 								</tbody>
-								<tfoot>
+								
+                                <tfoot>
 									<tr>
-									    <th>Foto</th>
-										<th>Nombre</th>
-										<th>Matricula</th>
-										<th>Telefono Trabajo</th>
-										<th>Curriculum</th>
-										<th>Opciones</th>
+									<th>Foto</th>
+									<th>Nombre</th>
+									<th>Fecha</th>
+									<th>Hora</th>
+									<th>Opciones</th>
+										
 
 									</tr>
 								</tfoot>
@@ -504,8 +500,9 @@
 						</div>
 					</div>
 			</div>
-                </div>
-                </div>
+                    </div>
+                </div>					
+
 			</div>
 		</div>
 		<!--end page wrapper -->
@@ -642,9 +639,21 @@
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
-
+	</script>
+	
+	<script>
 		function mensaje(){
 			alert("Solicitud Aceptada");
+		}
+		function Confirmar(){
+			var retVal = confirm("¿Seguro desea continuar?");
+			if( retVal == true ){
+				document.write ("OK, RESERVA ACEPTADA");
+				return true;
+			}else{
+				document.write ("NO SE GUARDÓ EL REGISTRO");
+			    return false;
+			}
 		}
 	</script>
 
