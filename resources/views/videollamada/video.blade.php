@@ -440,27 +440,21 @@
                     <div class="card radius-10">
                         <div class="card-body">
                         <!-- html agregado-->
-    <div class="col-md-4">
-        <div class="input-group">
-            <!-- <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre"> -->
-            <div class="form-control validate-input" data-validate="Password is required">
-                        <select class="input100" name="" id="slcsexo">
-                            <option value="0" >Seleccionar Genero</option>
-                            <option value="1" >Masculino</option>
-                            <option value="2" >Femenino</option>
-                        </select>
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                        
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <!-- <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre"> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text">Buscar</span></div> -->
+                                <select class="input-group-append" name="">
+                                    <option value="0" >Seleccionar</option>
+                                    <option value="1" >Aceptado</option>
+                                    <option value="2" >Rechazado</option>
+                                    <option value="2" >Pendiente</option>
+                                </select>
+                                <button type="submit" class="btn btn-success">buscar</button>
+                        </div>
+                        <div id="resultados" class="bg-light border"></div>
                     </div>
-            <!-- <div class="input-group-append"><span class="input-group-text">Buscar</span></div> -->
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
-        <div id="resultados" class="bg-light border"></div>
-    </div>
-<!-- fin del html agregado-->
+                    <!-- fin del html agregado-->
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
