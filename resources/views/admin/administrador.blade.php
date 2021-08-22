@@ -481,8 +481,8 @@
 										</td>
 
 										<td>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
-											<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
+											<a onclick="aceptarmedico( <?php echo  $Medicos[$i]->IdMedico ?> )" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
+											<a onclick="rechazarmedico( <?php echo $Medicos[$i]->IdMedico ?> )" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
 										</td>
 									</tr>
 
@@ -646,6 +646,61 @@
 		function mensaje(){
 			alert("Solicitud Aceptada");
 		}
+
+		function aceptarmedico(id)
+		{
+
+			var urlajax="http://localhost:8000/api/aceptarmedico";
+			$.ajax({                    
+                                    url: urlajax,
+                                    data: {idmedico : id} , 
+                                    type : 'POST',
+                                    dataType: "json",
+                                    
+                                        beforeSend:function( ) {   
+                                            $("#btncarga").show();
+                                        $("#bntprepararpago").hide();
+                                            
+                                        },                    
+                                        success:function(response) {
+											location.reload();	
+                                            
+                                        },
+                                        error: function (data) {
+                                            console.log(data.responseText);
+                                        },               
+                                        complete:function( ) {
+                                            
+                                        },
+                                }); 
+		}
+		function rechazarmedico(id)
+		{
+			var urlajax="http://localhost:8000/api/rechazarmedico";
+			$.ajax({                    
+                                    url: urlajax,
+                                    data: {idmedico : id} , 
+                                    type : 'POST',
+                                    dataType: "json",
+                                    
+                                        beforeSend:function( ) {   
+                                            $("#btncarga").show();
+                                        $("#bntprepararpago").hide();
+                                            
+                                        },                    
+                                        success:function(response) {
+											
+                                            location.reload();
+                                        },
+                                        error: function (data) {
+                                            console.log(data.responseText);
+                                        },               
+                                        complete:function( ) {
+                                            
+                                        },
+                                }); 
+		}
+		
 	</script>
 
 	<!--app JS-->

@@ -64,6 +64,20 @@
                      @enderror
                   </div>
 
+                  <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                  <label for="Tipo" class="col-md-4 col-form-label text-md-right"> Tipo</label>
+                     
+                     <select class="input100" name="Tipo" id="Tipo">
+                        <option value="1">Admin</option>
+                        <option value="2">Medico</option>
+
+                     </select>
+                     <span class="focus-input100"></span>
+                     <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                     </span>
+                  </div>
+
                   <div class="container-login100-form-btn">
                      <button class="login100-form-btn" style="background-color: blue"  onclick="Login()">
                      Login

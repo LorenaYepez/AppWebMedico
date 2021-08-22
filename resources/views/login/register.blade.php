@@ -71,7 +71,7 @@
                 
 
             </div>
-
+fajax
             <div id ="cajadatoslaborales"  style ="display:none">
             <!-- especialidad -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">

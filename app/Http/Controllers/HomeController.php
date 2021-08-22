@@ -27,9 +27,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona ");  
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And Medico.Estado=1 ");  
         return view('admin/administrador' , ["Medicos"=> $loConsultaCliente]);
     }
+    
+    public function MedicosAceptados()
+    {
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=2 ");  
+        return view('admin/medicosaceptados' , ["Medicos"=> $loConsultaCliente]);
+    }
+    
+
+    public function MedicosRechazados()
+    {
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=3 ");  
+        return view('admin/medicosrechazados' , ["Medicos"=> $loConsultaCliente]);
+    }
+    
     
     public function index1()
     {

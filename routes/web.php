@@ -36,6 +36,10 @@ Route::get('/admin', 'HomeController@index');
 
 Route::get('/medico', 'HomeController@index1');
 
+Route::get('/solicitud', 'HomeController@index');
+Route::get('/medicosaceptados', 'HomeController@MedicosAceptados');
+Route::get('/medicosrechazados', 'HomeController@MedicosRechazados');
+
 //Route::post('/login', 'HomeController@login');
 
 // Route::get('/mail', function(){

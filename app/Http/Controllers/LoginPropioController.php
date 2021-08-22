@@ -5,6 +5,7 @@ use Auth;
 use App\User;
 use Redirect;
 use Illuminate\Http\Request;
+use DB;
 
 class LoginPropioController extends Controller
 {
@@ -12,20 +13,54 @@ class LoginPropioController extends Controller
 	{
 	$userusuario = $request->input('correo');
 	$password = $request->input('contrasena');
+    $tipo = $request->input('Tipo');
 
-    
-	$auth = User::where('Correo', '=', $userusuario   )->where('Contrasena', '=', $password )->first();
-		if($auth){
-			Auth::login($auth);
-/*
-		if (Auth::attempt(['Correo' => $userusuario, 'Contrasena' => $password]))
-        {*/
-            return Redirect::to('admin');
-        }
+    if($tipo==1)
+    {
+        // si entro aqui significa que esta buscando  admin y debe verificar si existe 
+        
         echo '<pre>';  
-        print_r(Auth::attempt(['Correo' => $userusuario, 'Contrasena' => $password])) ;
-        print_r($request->all() ) ;
+       
+        $laConsulta=DB::select("select * from Persona , Admin where Persona.IdPersona = Admin.IdPersona and  Persona.Correo= '$userusuario' And Persona.Contrasena = '$password' ");
+   
+        if(count($laConsulta) >0)
+        {
+            $auth = User::WHERE('Correo', '=', $userusuario   )->where('Contrasena', '=', $password )->first();
+
+            if($auth){
+                Auth::login($auth);
+                return Redirect::to('admin');
+            }
+        }else{
+          //  return Redirect::to('/');
+            echo "No existe  el admin";
+        }
+        
+     
+
+    }else{
+        // si entro aqui significa que esta buscando medico  y debe verificar si existe 
+         
+        
+        $laConsulta=DB::select("select * from Persona , medico where Persona.IdPersona = medico.IdPersona and  Persona.Correo= '$userusuario' And Persona.Contrasena = '$password'");
+      
+        if(count($laConsulta) >0)
+        {
+            print_r($laConsulta);
+            $auth = User::WHERE('Correo', '=', $userusuario   )->where('Contrasena', '=', $password )->first();
+
+            if($auth){
+                Auth::login($auth);
+                return Redirect::to('medico');
+            }
+        }else{
+            //echo "No existe  el medico";
+            return Redirect::to('/');
+        }
+        
         echo '</pre>' ;
+    }
+        
         
 	}
 }
