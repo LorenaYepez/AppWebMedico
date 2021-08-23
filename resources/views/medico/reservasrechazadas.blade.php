@@ -59,14 +59,19 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
-						<div class="menu-title">Medicos</div>
+						<div class="menu-title">Pacientes</div>
 					</a>
                     <ul>
-                        <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
+                        <li> 
+                            <a href="/medico"><i class="bx bx-right-arrow-alt"></i>Solicitudes</a>
 						</li>
-						<li> <a href="/medicosaceptados"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
+
+						<li> 
+                            <a href="/reservasaceptadas"><i class="bx bx-right-arrow-alt"></i>Pacientes Aceptados</a>
 						</li>
-						<li> <a href="/medicosrechazados"><i class="bx bx-right-arrow-alt"></i> Medicos Rechazados </a>
+
+						<li> 
+                            <a href="/reservasrechazadas"><i class="bx bx-right-arrow-alt"></i> Pacientes Rechazados </a>
 						</li>
 						
 					</ul>
@@ -447,10 +452,6 @@
 						<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
 								<thead>
 									<tr>
                                         <th>Foto</th>
@@ -472,16 +473,15 @@
 
                                         <td> {{$Pacientes[$i]->Nombre}} </td>
 
-                                        <td>{{ $Pacientes[$i]->FechaReserva }}</td>
+                                        <td>{{$Pacientes[$i]->FechaReserva }}</td>
 
-                                        <td>{{ $Pacientes[$i]->Hora }}</td>
+                                        <td>{{$Pacientes[$i]->Hora}}</td>
 
 										<td>
                                             <a href="javascript:;" class="btn btn-sm btn-danger">Rechazado</a>
                                         </td>
                                         
 									</tr>
-
 									@endfor
 
 								</tbody>

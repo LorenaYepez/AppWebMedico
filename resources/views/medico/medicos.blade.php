@@ -68,7 +68,20 @@
 						</div>
 						<div class="menu-title">Pacientes</div>
 					</a>
-					
+					<ul>
+                        <li> 
+							<a href="/medico"><i class="bx bx-right-arrow-alt"></i> Solicitudes  </a>
+						</li>
+
+						<li> 
+							<a href="/reservasaceptadas"><i class="bx bx-right-arrow-alt"></i>Pacientes Aceptados</a>
+						</li>
+
+						<li> 
+							<a href="/reservasrechazadas"><i class="bx bx-right-arrow-alt"></i> Pacientes Rechazados </a>
+						</li>
+						
+					</ul>
 				</li>
 
 				

@@ -52,13 +52,13 @@ class HomeController extends Controller
     // Reserva
     public function PacientesAceptados()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Paciente , Persona Where Paciente.IdPersona =Persona.IdPersona And  Paciente.Estado=2");  
+        $loConsultaCliente=DB::select("SELECT * FROM Paciente , Persona, Reserva Where Paciente.IdPersona =Persona.IdPersona And  Paciente.Estado=2 AND Paciente.IdPaciente =Reserva.IdPaciente");  
         return view('medico/reservasaceptadas' , ["Pacientes"=> $loConsultaCliente]);
     }
     
     public function PacientesRechazados()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Paciente , Persona Where Paciente.IdPersona =Persona.IdPersona And  Paciente.Estado=3");  
+        $loConsultaCliente=DB::select("SELECT * FROM Paciente , Persona, Reserva Where Paciente.IdPersona =Persona.IdPersona And  Paciente.Estado=3 AND Paciente.IdPaciente =Reserva.IdPaciente");  
         return view('medico/reservasrechazadas' , ["Pacientes"=> $loConsultaCliente]);
     }
     

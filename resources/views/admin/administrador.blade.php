@@ -54,14 +54,14 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-message"></i>
 						</div>
 						<div class="menu-title">Solicitud</div>
 					</a>
 					
-				</li>
+				</li> -->
                 <li>
 					<a href="" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
@@ -69,6 +69,16 @@
 						<div class="menu-title">Medicos</div>
 					</a>
 					
+					<ul>
+                        <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i>Solicitud</a>
+						</li>
+						<li> <a href="/medicosaceptados"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
+						</li>
+						<li> <a href="/medicosrechazados"><i class="bx bx-right-arrow-alt"></i> Medicos Rechazados </a>
+						</li>
+						
+					</ul>
+
 				</li>
 
 				
@@ -445,10 +455,6 @@
 						<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
 								<thead>
 									<tr>
 										<th>Foto</th>

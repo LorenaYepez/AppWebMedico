@@ -59,14 +59,14 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-user"></i>
 						</div>
-						<div class="menu-title">Medicos</div>
+						<div class="menu-title">Pacientes</div>
 					</a>
                      <ul>
-                          <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i> Solicitudes  </a>
+                          <li> <a href="/medico"><i class="bx bx-right-arrow-alt"></i> Solicitudes  </a>
 						</li>
-						<li> <a href="/medicosaceptados"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
+						<li> <a href="/reservasaceptadas"><i class="bx bx-right-arrow-alt"></i>Pacientes Aceptados</a>
 						</li>
-						<li> <a href="/medicosrechazados"><i class="bx bx-right-arrow-alt"></i> Medicos Rechazados </a>
+						<li> <a href="/reservasrechazadas"><i class="bx bx-right-arrow-alt"></i> Pacientes Rechazados </a>
 						</li>
 						
 					</ul>
@@ -447,13 +447,9 @@
 						<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
 								<thead>
 									<tr>
-                                    <th>Foto</th>
+                                        <th>Foto</th>
 										<th>Nombre</th>
 										<th>Fecha</th>
 										<th>Hora</th>
@@ -472,9 +468,9 @@
 								        </td>
 
 										<td> {{$Pacientes[$i]->Nombre}} </td>
-                                        
-                                        <td>{{ $Pacientes[$i]->FechaReserva }}</td>
-                                        
+
+										<td> {{$Pacientes[$i]->FechaReserva}} </td>
+
                                         <td>{{ $Pacientes[$i]->Hora }}</td>
 
 										<td>
@@ -487,13 +483,11 @@
 								</tbody>
 								<tfoot>
 									<tr>
-									    <th>Foto</th>
+                                        <th>Foto</th>
 										<th>Nombre</th>
-										<th>Matricula</th>
-										<th>Telefono Trabajo</th>
-										<th>Curriculum</th>
-										<th>Opciones</th>
-
+										<th>Fecha</th>
+										<th>Hora</th>
+										<th>Estado</th>
 									</tr>
 								</tfoot>
 							</table>

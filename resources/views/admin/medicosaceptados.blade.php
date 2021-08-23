@@ -447,10 +447,6 @@
 						<div class="card-body">
 						<div class="table-responsive">
 							<table id="example2" class="table table-striped table-bordered">
-
-							<div class="panel-footer">
-            <button type="submit" class="btn btn-success">buscar</button>
-        </div>
 								<thead>
 									<tr>
 										<th>Foto</th>
