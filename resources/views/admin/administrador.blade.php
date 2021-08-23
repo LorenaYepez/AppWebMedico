@@ -491,7 +491,6 @@
 											<a onclick="rechazarmedico( <?php echo $Medicos[$i]->IdMedico ?> )" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
 										</td>
 									</tr>
-
 									@endfor
 
 								</tbody>
