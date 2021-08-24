@@ -45,7 +45,7 @@ class HomeController extends Controller
     // 
     public function index1()
     {
-        $poConsultaCliente=DB::select("SELECT * FROM Paciente , Persona, Reserva Where Paciente.IdPersona =Persona.IdPersona and Paciente.IdPaciente =Reserva.IdPaciente");  
+        $poConsultaCliente=DB::select("SELECT * FROM Paciente , Persona, Reserva Where Paciente.IdPersona =Persona.IdPersona and Paciente.IdPaciente =Reserva.IdPaciente AND Paciente.Estado=1");  
         return view('medico/medicos' , ["Pacientes"=> $poConsultaCliente]);
         //print_r($poConsultaCliente);
     }

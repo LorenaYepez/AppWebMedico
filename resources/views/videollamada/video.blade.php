@@ -443,8 +443,11 @@
                     <div class="card radius-10">
                         <div class="card-body">
                         <!-- html agregado-->
-                        <div class="col-md-12">
-                            <div class="input-group">
+                        <div class="col-md-12" >
+							<!-- aumente meet -->
+							<div id="meet"> </div>
+							<!--  -->
+							<div class="input-group">
                                 <!-- <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre"> -->
                                 <!-- <div class="input-group-append"><span class="input-group-text">Buscar</span></div> -->
                                 <select class="input-group-append" name="">
@@ -475,7 +478,8 @@
                                 
                                 <tr>
                                     <td>
-                                        <a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a>
+                                        <!-- <a onclick="codeAddress()" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a> -->
+                                        <a onclick="codeAddress()" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a>
 										<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">CANCELAR</a>
                                     </td>
                                 </tr>
@@ -653,18 +657,26 @@
 			}
 		}
 	</script>
-    
-    <script src="https://meet.jit.si/external_api.js" type="application/javascript"></script>
+	<script src='https://meet.jit.si/external_api.js'></script>
+        <script tyte = "text/javascript">
+            function codeAddress(){
+                const domain = 'meet.jit.si';
+                const options = {
+                    // roomName: 'JitsiMeetAPIExample',
+                    roomName: 'IdNombreASD',
+                    width: 700,
+                    height: 700,
+                    parentNode: document.querySelector('#meet'),
+                    userInfo: {
+                        email: 'lorena@gmail.com',
+                        displayName: 'Lorena Ponce'
+                    }
+                };
+            const api = new JitsiMeetExternalAPI(domain, options);
+            }
+            window.onload = codeAddress;
+        </script>
 
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/flutter_service_worker.js');
-    });
-    }
-    </script>
-    <script src="https://meet.jit.si/external_api.js" type="application/javascript"></script>
-    <script src="main.dart.js" type="application/javascript"></script>
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
 </body>

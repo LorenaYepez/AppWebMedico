@@ -10,6 +10,7 @@ use App\Mail\Bienvenida;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// por el momento
 Route::get('/', function () {
     return view('login/login');
 });
@@ -43,6 +44,11 @@ Route::get('/medicosrechazados', 'HomeController@MedicosRechazados');
 Route::get('/reservasaceptadas', 'HomeController@PacientesAceptados');
 Route::get('/reservasrechazadas', 'HomeController@PacientesRechazados');
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// fin
 //Route::post('/login', 'HomeController@login');
 
 // Route::get('/mail', function(){
@@ -55,9 +61,8 @@ Route::get('/reservasrechazadas', 'HomeController@PacientesRechazados');
 //     return "mensaje enviado";
 // });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('user', 'UserController@index');
