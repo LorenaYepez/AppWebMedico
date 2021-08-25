@@ -79,6 +79,12 @@ fajax
                             <option value="0" >Seleccionar Especialidad</option>
                             <option value="1" >Dermatologia</option>
                             <option value="2" >Cardiologia</option>
+                            
+                            <!-- <option value=""> Seleccionar</option>
+                                @foreach($Especialidad as $c)
+                                    <option value="{{$c->IdEspecialidad}}">{{$c->Nombre}}</option>
+                                @endforeach -->
+
                     </select>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">

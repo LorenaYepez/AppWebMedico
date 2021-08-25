@@ -34,7 +34,9 @@ Route::get('/videollamada', function () {
 Route::post('/login', 'LoginPropioController@login');
 
 Route::get('/admin', 'HomeController@index');
-
+// 
+Route::get('/admin', 'HomeController@MostrarEspecialidad');
+// 
 Route::get('/medico', 'HomeController@index1');
 
 Route::get('/solicitud', 'HomeController@index');

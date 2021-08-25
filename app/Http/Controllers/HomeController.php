@@ -30,6 +30,12 @@ class HomeController extends Controller
         $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And Medico.Estado=1 ");  
         return view('admin/administrador' , ["Medicos"=> $loConsultaCliente]);
     }
+// 
+    public function MostrarEspecialidad()
+    {
+        $loConsultaCliente=DB::select("SELECT * FROM Especialidad");  
+        return view('admin/administrador' , ["Especialidad"=> $loConsultaCliente]);
+    }
     // Medico
     public function MedicosAceptados()
     {
