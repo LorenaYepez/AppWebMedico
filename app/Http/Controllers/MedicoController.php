@@ -50,6 +50,7 @@ class MedicoController extends Controller
             $nombre= $request->input('nombre');
             $fecha= $request->input('fecha'); 
             $sexo= $request->input('sexo'); 
+            $especialidad= $request->input('especialidad'); 
             $foto=  $rutafoto; 
             $matricula= $request->input('matricula'); 
             $direccion= $request->input('direccion'); 
@@ -77,6 +78,7 @@ class MedicoController extends Controller
                 'NroMatricula' => $matricula,
                 'TelefonoLaboral' => $telefono,
                 'TituloProfesional' => $cv,
+                'Especialidad' => $especialidad,
             ]);
 
             $to = $correo;
@@ -87,6 +89,11 @@ class MedicoController extends Controller
 
         return response()->json($idMedico);
         }
+    }
+
+    public function RegistroMedico(Request $request)
+    {
+        return view('login/register');
     }
 
     public function aceptarmedico(Request $request)

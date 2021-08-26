@@ -15,10 +15,16 @@ Route::get('/', function () {
     return view('login/login');
 });
 
-Route::get('/register', function () {
-    return view('login/register');
-});
-
+// Route::get('/register', function () {
+//     return view('login/register');
+// });
+// 
+// 
+Route::get('/register', 'MedicoController@RegistroMedico');
+Route::get('/register', 'HomeController@MostrarEspecialidad');
+// Route::get('/register', 'HomeController@registrarMedico');
+// 
+// 
 Route::get('/admin', function () {
     return view('admin/administrador');
 });
@@ -34,9 +40,7 @@ Route::get('/videollamada', function () {
 Route::post('/login', 'LoginPropioController@login');
 
 Route::get('/admin', 'HomeController@index');
-// 
-Route::get('/admin', 'HomeController@MostrarEspecialidad');
-// 
+
 Route::get('/medico', 'HomeController@index1');
 
 Route::get('/solicitud', 'HomeController@index');

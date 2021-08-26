@@ -30,12 +30,6 @@ class HomeController extends Controller
         $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And Medico.Estado=1 ");  
         return view('admin/administrador' , ["Medicos"=> $loConsultaCliente]);
     }
-// 
-    public function MostrarEspecialidad()
-    {
-        $loConsultaCliente=DB::select("SELECT * FROM Especialidad");  
-        return view('admin/administrador' , ["Especialidad"=> $loConsultaCliente]);
-    }
     // Medico
     public function MedicosAceptados()
     {
@@ -67,6 +61,12 @@ class HomeController extends Controller
         $loConsultaCliente=DB::select("SELECT * FROM Paciente , Persona, Reserva Where Paciente.IdPersona =Persona.IdPersona And  Paciente.Estado=3 AND Paciente.IdPaciente =Reserva.IdPaciente");  
         return view('medico/reservasrechazadas' , ["Pacientes"=> $loConsultaCliente]);
     }
-    
+    // 
+    public function MostrarEspecialidad()
+    {
+        $loConsultaCliente=DB::select("SELECT * FROM Especialidad");  
+        return view('login/register' , ["Especialidad"=> $loConsultaCliente]);
+    }
+    // 
     
 }
