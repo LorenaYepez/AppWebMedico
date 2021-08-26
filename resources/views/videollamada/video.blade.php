@@ -450,13 +450,13 @@
 							<div class="input-group">
                                 <!-- <input type="text" class="form-control" id="texto" placeholder="Ingrese nombre"> -->
                                 <!-- <div class="input-group-append"><span class="input-group-text">Buscar</span></div> -->
-                                <select class="input-group-append" name="">
+                                <!-- <select class="input-group-append" name="">
                                     <option value="0" >Seleccionar</option>
                                     <option value="1" >Aceptado</option>
                                     <option value="2" >Rechazado</option>
                                     <option value="2" >Pendiente</option>
                                 </select>
-                                <button type="submit" class="btn btn-success">buscar</button>
+                                <button type="submit" class="btn btn-success">buscar</button> -->
                         </div>
                         <div id="resultados" class="bg-light border"></div>
                     </div>
@@ -479,7 +479,9 @@
                                 <tr>
                                     <td>
                                         <!-- <a onclick="codeAddress()" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a> -->
-                                        <a onclick="codeAddress()" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a>
+                                        <!-- <a onclick="{{ Redirect::to('/login') }}" href="javascript:;" class="btn btn-sm btn-primary">INICIAR</a> -->
+										<!-- <a onclick="" href="javascript:;" class="btn btn-sm btn-primary">Agregar</a> -->
+										<a href="javascript:;" class=""><i class="btn btn-sm btn-primary bx bxs-file"></i></a>
 										<a onclick="mensaje()" href="javascript:;" class="btn btn-sm btn-danger">CANCELAR</a>
                                     </td>
                                 </tr>

@@ -27,19 +27,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And Medico.Estado=1 ");  
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona, Especialidad Where Medico.IdPersona =Persona.IdPersona And Medico.Estado=1 And Medico.IdEspecialidad = Especialidad.IdEspecialidad");  
         return view('admin/administrador' , ["Medicos"=> $loConsultaCliente]);
     }
     // Medico
     public function MedicosAceptados()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=2 ");  
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona, Especialidad Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=2 And Medico.IdEspecialidad = Especialidad.IdEspecialidad");  
         return view('admin/medicosaceptados' , ["Medicos"=> $loConsultaCliente]);
     }
     
     public function MedicosRechazados()
     {
-        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=3 ");  
+        $loConsultaCliente=DB::select("SELECT * FROM Medico , Persona, Especialidad Where Medico.IdPersona =Persona.IdPersona And  Medico.Estado=3 And Medico.IdEspecialidad = Especialidad.IdEspecialidad");  
         return view('admin/medicosrechazados' , ["Medicos"=> $loConsultaCliente]);
     }
     // 
@@ -68,5 +68,10 @@ class HomeController extends Controller
         return view('login/register' , ["Especialidad"=> $loConsultaCliente]);
     }
     // 
+    public function MostrarPaciente()
+    {
+        $loConsultaCliente=DB::select("SELECT Persona.Nombre FROM Persona, Paciente WHERE Persona.IdPersona and Paciente.IdPersona");  
+        return view('videollamada/historial' , ["Pacientes"=> $loConsultaCliente]);
+    }
     
 }

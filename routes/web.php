@@ -33,9 +33,13 @@ Route::get('/medico', function () {
     return view('medico/medicos');
 });
 
-Route::get('/videollamada', function () {
-    return view('videollamada/video');
-});
+// Route::get('/videollamada', function () {
+//     return view('videollamada/video');
+// });
+
+// Route::get('/videollamada', function () {
+//     return view('videollamada/historial');
+// });
 
 Route::post('/login', 'LoginPropioController@login');
 
@@ -49,6 +53,8 @@ Route::get('/medicosrechazados', 'HomeController@MedicosRechazados');
 
 Route::get('/reservasaceptadas', 'HomeController@PacientesAceptados');
 Route::get('/reservasrechazadas', 'HomeController@PacientesRechazados');
+
+Route::get('/historial', 'HomeController@MostrarPaciente');
 
 // Route::get('/', function () {
 //     return view('welcome');

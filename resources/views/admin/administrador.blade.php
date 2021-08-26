@@ -70,7 +70,7 @@
 					</a>
 					
 					<ul>
-                        <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i>Solicitud</a>
+                        <li> <a href="/solicitud"><i class="bx bx-right-arrow-alt"></i>Solicitudes</a>
 						</li>
 						<li> <a href="/medicosaceptados"><i class="bx bx-right-arrow-alt"></i>Medicos Aceptados</a>
 						</li>
@@ -461,6 +461,7 @@
 										<th>Nombre</th>
 										<th>Matricula</th>
 										<th>Telefono</th>
+										<th>Especialidad</th>
 										<th>Curriculum</th>
 										<th>Opciones</th>
 										
@@ -480,6 +481,7 @@
 										<td> {{$Medicos[$i]->Nombre }} </td>
 										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
 										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
+										<td>{{ $Medicos[$i]->NombreEspecialidad }}</td>
 
 										<td>
 										<!-- <a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a> -->
@@ -499,7 +501,8 @@
 									    <th>Foto</th>
 										<th>Nombre</th>
 										<th>Matricula</th>
-										<th>Telefono Trabajo</th>
+										<th>Telefono</th>
+										<th>Especialidad</th>
 										<th>Curriculum</th>
 										<th>Opciones</th>
 

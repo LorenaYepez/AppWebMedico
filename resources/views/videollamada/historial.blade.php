@@ -446,82 +446,50 @@
 		</header>
 		<!--end header -->
 		<!--start page wrapper -->
-		<div class="page-wrapper">
+        <div class="page-wrapper">
 			<div class="page-content">
-                <div class="row">
-                    <div class="col-md-12">
-                    <div class="card radius-10">
-                 <div class="card-body">
-						<div class="table-responsive">
-							<table id="example2" class="table table-striped table-bordered">
-								<thead>
-									<tr>
-										<th>Foto</th>
-										<th>Nombre</th>
-										<th>Fecha</th>
-										<th>Hora</th>
-										<th>Estado</th>
-										<th>Opciones</th>
-										
-									</tr>
-								</thead>
-								<tbody>
+				<!--breadcrumb-->
+				
+				<!--end breadcrumb-->
+				<div class="card">
+				  <div class="card-body p-4">
+					  <h5 class="card-title">Historial</h5>
+					  <hr>
+                       <div class="form-body mt-4">
+					    <div class="row">
+						   <div class="col-lg-8">
+                           <div class="border border-3 p-4 rounded">
+							<div class="mb-3">
+								<label for="inputProductTitle" class="form-label">Nombre del Paciente</label>
+								<!-- <input type="email" class="form-control" id="inputProductTitle" placeholder="Enter product title"> -->
+                                <select name="nombreCliente" id="nombreCliente" class="form-control">
+                                    <option value="">Selecionar</option>
+                                    @foreach($Pacientes as $c)
+                                        <option value="{{$c->IdPersona}}">{{$c->Nombre}}</option>
+                                    @endforeach
+							  </div>
+							  
+                              <div class="mb-3">
+								<label for="inputProductDescription" class="form-label">Diagnostico</label>
+								<textarea class="form-control" id="inputProductDescription" rows="3"></textarea>
+							  </div>
 
-							@for ($i = 0; $i < count($Pacientes); $i++)
-							<tr>
-								
-							    <td>
-									<a><img src="{{$Pacientes[$i]->FotoDePerfil}}" class="user-img" alt="" ></a>
-								</td>
+                              <div class="mb-3">
+								<label for="inputProductDescription" class="form-label">Receta</label>
+								<textarea class="form-control" id="inputProductDescription" rows="3"></textarea>
+							  </div>
 
-								<td> {{$Pacientes[$i]->Nombre}} </td>
-
-								<td>{{ $Pacientes[$i]->FechaReserva }}</td>
-
-								<td>{{ $Pacientes[$i]->Hora }}</td>
-
-								<td>
-								<!-- @if($Pacientes[$i]->Estado == "0")
-								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
-								@endif
-								-->
-								@if ($Pacientes[$i]->Estado == "1")
-								<a href="javascript:;" class="btn btn-sm btn-warning">PENDIENTE</a>
-								@elseif ($Pacientes[$i]->Estado == "2")
-								<a href="javascript:;" class="btn btn-sm btn-primary">ACEPTADO</a>
-								@elseif ($Pacientes[$i]->Estado == "3")
-								<a href="javascript:;" class="btn btn-sm btn-danger">RECHAZADO</a>
-								@endif
-								</td>
-								
-								<td>
-									<a onclick="aceptarpaciente( <?php echo  $Pacientes[$i]->IdPaciente ?> )" href="javascript:;" class="btn btn-sm btn-primary">ACEPTAR</a>
-									<a onclick="rechazarpaciente( <?php echo $Pacientes[$i]->IdPaciente ?> )" href="javascript:;" class="btn btn-sm btn-danger">RECHAZAR</a>
-								</td>
-
-							</tr>
-							@endfor
-
-								</tbody>
-								<tfoot>
-									<tr>
-									<th>Foto</th>
-									<th>Nombre</th>
-									<th>Fecha</th>
-									<th>Hora</th>
-									<th>Estado</th>
-									<th>Opciones</th>
-										
-
-									</tr>
-								</tfoot>
-							</table>
-						</div>
+							  <div class="mb-3">
+								<label for="inputProductDescription" class="form-label">Product Images</label>
+								<input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple="" style="display: none;"><div class="imageuploadify well"><div class="imageuploadify-overlay"><i class="fa fa-picture-o"></i></div><div class="imageuploadify-images-list text-center"><i class="bx bxs-cloud-upload"></i><span class="imageuploadify-message">Drag&amp;Drop Your File(s)Here To Upload</span><button type="button" class="btn btn-default" style="background: white; color: rgb(58, 160, 255);">or select file to upload</button></div></div>
+							  </div>
+                            </div>
+						   </div>
+						  </div>
+					   </div><!--end row-->
 					</div>
-			</div>
-                    </div>
-                </div>					
-
+				  </div>
+			  </div>
 			</div>
 		</div>
 		<!--end page wrapper -->

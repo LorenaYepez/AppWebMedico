@@ -449,10 +449,11 @@
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-										<th>Foto</th>
+									    <th>Foto</th>
 										<th>Nombre</th>
 										<th>Matricula</th>
 										<th>Telefono</th>
+										<th>Especialidad</th>
 										<th>Curriculum</th>
 										<th>Estado</th>
 										
@@ -472,6 +473,7 @@
 										<td> {{$Medicos[$i]->Nombre }} </td>
 										<td>{{ $Medicos[$i]->NroMatricula  }}</td> 
 										<td>{{ $Medicos[$i]->TelefonoLaboral }}</td>
+										<td>{{ $Medicos[$i]->NombreEspecialidad }}</td>
 
 										<td>
 										<!-- <a target="_blank" href="{{asset('pdfmedico/svelezz.pdf')}}" class="btn btn-sm btn-warning">VER</a> -->
@@ -488,13 +490,13 @@
 								</tbody>
 								<tfoot>
 									<tr>
-									    <th>Foto</th>
+									<th>Foto</th>
 										<th>Nombre</th>
 										<th>Matricula</th>
-										<th>Telefono Trabajo</th>
+										<th>Telefono</th>
+										<th>Especialidad</th>
 										<th>Curriculum</th>
-										<th>Opciones</th>
-
+										<th>Estado</th>
 									</tr>
 								</tfoot>
 							</table>
