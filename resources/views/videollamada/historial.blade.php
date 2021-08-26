@@ -453,36 +453,59 @@
 				<!--end breadcrumb-->
 				<div class="card">
 				  <div class="card-body p-4">
-					  <h5 class="card-title">Historial</h5>
+					  <h5 class="card-title">Historial Medico</h5>
 					  <hr>
                        <div class="form-body mt-4">
 					    <div class="row">
 						   <div class="col-lg-8">
                            <div class="border border-3 p-4 rounded">
-							<div class="mb-3">
-								<label for="inputProductTitle" class="form-label">Nombre del Paciente</label>
-								<!-- <input type="email" class="form-control" id="inputProductTitle" placeholder="Enter product title"> -->
-                                <select name="nombreCliente" id="nombreCliente" class="form-control">
-                                    <option value="">Selecionar</option>
-                                    @foreach($Pacientes as $c)
-                                        <option value="{{$c->IdPersona}}">{{$c->Nombre}}</option>
-                                    @endforeach
-							  </div>
-							  
+                            <!-- datos del paciente -->
+                            <div class="mb-3">
+                                <label for="inputProductTitle" class="form-label">Nombre del Paciente</label>
+                                @foreach($Paciente as $c)
+								<input id="todo-input" type="text" class="form-control" value="{{$c->Nombre}}">
+                                @endforeach
+							</div>
+
+                            <div class="mb-3">
+                                <label for="inputProductTitle" class="form-label">Fecha de Nacimiento</label>
+                                @foreach($Paciente as $c)
+                                <input id="todo-input" type="text" class="form-control" value="{{$c->FechaDeNacimiento}}">
+                                @endforeach
+							</div>
+
+                            <div class="mb-3">
+								<label for="inputProductTitle" class="form-label">Motivo de la Consulta</label>
+                                @foreach($Paciente as $c)
+								<input id="todo-input" type="text" class="form-control" value="{{$c->Motivo}}">
+                                @endforeach
+							</div>
+
                               <div class="mb-3">
 								<label for="inputProductDescription" class="form-label">Diagnostico</label>
-								<textarea class="form-control" id="inputProductDescription" rows="3"></textarea>
+                                @foreach($Paciente as $c)
+								<textarea class="form-control" id="inputProductDescription" rows="6">
+                                {{$c->Descripcion}}
+                                </textarea>
+                                @endforeach
 							  </div>
 
                               <div class="mb-3">
 								<label for="inputProductDescription" class="form-label">Receta</label>
-								<textarea class="form-control" id="inputProductDescription" rows="3"></textarea>
+                                @foreach($Paciente as $c)
+								<textarea class="form-control" id="inputProductDescription" rows="3">
+                                {{$c->DescripcionReceta}}
+                                </textarea>
+                                @endforeach
 							  </div>
 
-							  <div class="mb-3">
-								<label for="inputProductDescription" class="form-label">Product Images</label>
-								<input id="image-uploadify" type="file" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple="" style="display: none;"><div class="imageuploadify well"><div class="imageuploadify-overlay"><i class="fa fa-picture-o"></i></div><div class="imageuploadify-images-list text-center"><i class="bx bxs-cloud-upload"></i><span class="imageuploadify-message">Drag&amp;Drop Your File(s)Here To Upload</span><button type="button" class="btn btn-default" style="background: white; color: rgb(58, 160, 255);">or select file to upload</button></div></div>
-							  </div>
+                              <div class="mb-3">
+                                <label for="inputProductTitle" class="form-label">Fecha de Consulta</label>
+                                @foreach($Paciente as $c)
+								<input id="todo-input" type="text" class="form-control" value="{{$c->FechaConsulta}}">
+                                @endforeach
+							</div>
+
                             </div>
 						   </div>
 						  </div>

@@ -78,7 +78,7 @@ class MedicoController extends Controller
                 'NroMatricula' => $matricula,
                 'TelefonoLaboral' => $telefono,
                 'TituloProfesional' => $cv,
-                'IdEspecialidad' => $especialidad,
+                'IdEspecialidad' => 6,
             ]);
 
             $to = $correo;

@@ -62,16 +62,20 @@ class HomeController extends Controller
         return view('medico/reservasrechazadas' , ["Pacientes"=> $loConsultaCliente]);
     }
     // 
-    public function MostrarEspecialidad()
-    {
-        $loConsultaCliente=DB::select("SELECT * FROM Especialidad");  
-        return view('login/register' , ["Especialidad"=> $loConsultaCliente]);
-    }
+    // public function MostrarEspecialidad()
+    // {
+    //     $loConsultaCliente=DB::select("SELECT * FROM Especialidad");  
+    //     return view('login/register' , ["Especialidad"=> $loConsultaCliente]);
+    // }
     // 
+    public function MostrarConsulta()
+    {
+        $loConsultaCliente=DB::select("SELECT * FROM paciente, persona WHERE persona.IdPersona=paciente.IdPersona and paciente.Estado=2");  
+        return view('videollamada/video' , ["Paciente"=> $loConsultaCliente]);
+    }
     public function MostrarPaciente()
     {
-        $loConsultaCliente=DB::select("SELECT Persona.Nombre FROM Persona, Paciente WHERE Persona.IdPersona and Paciente.IdPersona");  
-        return view('videollamada/historial' , ["Pacientes"=> $loConsultaCliente]);
+        $loConsultaCliente=DB::select("SELECT * FROM paciente, persona,consulta, reserva, diagnostico, recetai WHERE persona.IdPersona=paciente.IdPersona and paciente.Estado=2 and paciente.IdPaciente=reserva.IdPaciente and consulta.IdReserva=reserva.IdReserva and consulta.IdDiagnostico=diagnostico.IdDiagnostico and recetai.IdReceta=consulta.IdReceta");  
+        return view('videollamada/historial' , ["Paciente"=> $loConsultaCliente]);
     }
-    
 }
