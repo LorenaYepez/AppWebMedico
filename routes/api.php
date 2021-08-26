@@ -26,5 +26,4 @@ Route::post('/rechazarpaciente', 'MedicoController@rechazarpaciente');
 Route::post('/aceptarmedico', 'MedicoController@aceptarmedico');
 Route::post('/rechazarmedico', 'MedicoController@rechazarmedico');
 
-
 // Route::post('medico/registrar', 'MedicoController@loginMedico');

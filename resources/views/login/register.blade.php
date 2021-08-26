@@ -76,13 +76,11 @@ fajax
             <!-- especialidad -->
             <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                     <select class="input100" name="" id="slcespecialidad">
-                            <!-- <option value="0" >Seleccionar Especialidad</option>
+                            <option value="0" >Seleccionar Especialidad</option> -->
                             <option value="1" >Dermatologia</option>
-                            <option value="2" >Cardiologia</option> -->
-                            <option value=""> Seleccionar Especialidad</option>
-                                @foreach($Especialidad as $c)
-                                    <option value="{{$c->IdEspecialidad}}">{{$c->Nombre}}</option>
-                                @endforeach
+                            <option value="2" >Cardiologia</option> 
+                            <option value="3" >Oftalmologia</option> 
+                            
                     </select>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
